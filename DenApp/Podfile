@@ -5,6 +5,6 @@ target 'DenApp' do
   use_frameworks!
 
   pod 'KeychainSwift'
-  pod 'Material', '~> 2.12'
+  pod 'IQKeyboardManagerSwift'
 
 end
