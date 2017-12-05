@@ -1,2 +1,2 @@
-# denapp
-Aplicativo para o trabalho final do curso de iOS
+# DenApp
+Aplicativo de denúncias criado para o trabalho final do curso de iOS.
