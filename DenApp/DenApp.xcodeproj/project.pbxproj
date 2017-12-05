@@ -14,6 +14,9 @@
 		B1D0996D1FD74391009DFF74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D0996B1FD74391009DFF74 /* LaunchScreen.storyboard */; };
 		B1D0997A1FD751B1009DFF74 /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D099781FD751B1009DFF74 /* TextFieldsEffects.swift */; };
 		B1D0997B1FD751B1009DFF74 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D099791FD751B1009DFF74 /* HoshiTextField.swift */; };
+		B1D0997D1FD756FF009DFF74 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D0997C1FD756FF009DFF74 /* KeyChain.swift */; };
+		B1D0997F1FD758E1009DFF74 /* FisrtAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D0997E1FD758E1009DFF74 /* FisrtAccessViewController.swift */; };
+		B1D099811FD75B08009DFF74 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D099801FD75B08009DFF74 /* Constants.swift */; };
 		FBF8AA3EED247B6184F85A52 /* Pods_DenApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6754B4133A198594F45115 /* Pods_DenApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +31,9 @@
 		B1D0996E1FD74391009DFF74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1D099781FD751B1009DFF74 /* TextFieldsEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldsEffects.swift; path = TextFieldEffects/TextFieldsEffects.swift; sourceTree = "<group>"; };
 		B1D099791FD751B1009DFF74 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HoshiTextField.swift; path = TextFieldEffects/HoshiTextField.swift; sourceTree = "<group>"; };
+		B1D0997C1FD756FF009DFF74 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
+		B1D0997E1FD758E1009DFF74 /* FisrtAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FisrtAccessViewController.swift; sourceTree = "<group>"; };
+		B1D099801FD75B08009DFF74 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D4D81797FA122EDBF4D80CC3 /* Pods-DenApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DenApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DenApp/Pods-DenApp.release.xcconfig"; sourceTree = "<group>"; };
 		FF6754B4133A198594F45115 /* Pods_DenApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DenApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -86,6 +92,9 @@
 				B1D099741FD743A4009DFF74 /* supportfiles */,
 				B1D099641FD74391009DFF74 /* ViewController.swift */,
 				B1D099661FD74391009DFF74 /* Main.storyboard */,
+				B1D0997C1FD756FF009DFF74 /* KeyChain.swift */,
+				B1D0997E1FD758E1009DFF74 /* FisrtAccessViewController.swift */,
+				B1D099801FD75B08009DFF74 /* Constants.swift */,
 			);
 			path = DenApp;
 			sourceTree = "<group>";
@@ -243,8 +252,11 @@
 			files = (
 				B1D099651FD74391009DFF74 /* ViewController.swift in Sources */,
 				B1D0997A1FD751B1009DFF74 /* TextFieldsEffects.swift in Sources */,
+				B1D0997D1FD756FF009DFF74 /* KeyChain.swift in Sources */,
 				B1D099631FD74391009DFF74 /* AppDelegate.swift in Sources */,
+				B1D099811FD75B08009DFF74 /* Constants.swift in Sources */,
 				B1D0997B1FD751B1009DFF74 /* HoshiTextField.swift in Sources */,
+				B1D0997F1FD758E1009DFF74 /* FisrtAccessViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
