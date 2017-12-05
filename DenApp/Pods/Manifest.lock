@@ -1,0 +1,22 @@
+PODS:
+  - KeychainSwift (10.0.0)
+  - Material (2.12.17):
+    - Material/Core (= 2.12.17)
+  - Material/Core (2.12.17):
+    - Motion (~> 1.2.5)
+  - Motion (1.2.5):
+    - Motion/Core (= 1.2.5)
+  - Motion/Core (1.2.5)
+
+DEPENDENCIES:
+  - KeychainSwift
+  - Material (~> 2.12)
+
+SPEC CHECKSUMS:
+  KeychainSwift: f9f7910449a0c0fd2cabc889121530dd2c477c33
+  Material: 5efae18f40ebf40baa2c252086d4646849ee7118
+  Motion: 88a8bee21926af792333f4b9e7170f710e9e48f3
+
+PODFILE CHECKSUM: 55187711d13092ad768f24ef99c5288642259f37
+
+COCOAPODS: 1.3.1
