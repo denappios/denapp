@@ -9,3 +9,8 @@ Equipe:
 - Guilherme Ribeiro
 - Lesley Diniz
 - Pedro Duraes
+
+
+## License
+
+This code is distributed under the terms and conditions of the [GNU General Public License v3.0](LICENSE).
