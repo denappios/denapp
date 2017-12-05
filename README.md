@@ -14,6 +14,14 @@
 - [Lesley Diniz](https://github.com/orgs/denappios/people/LesleyDiniz)
 - [Pedro Durães](https://github.com/orgs/denappios/people/pedroduraes)
 
+## Utilização
+
+Mussum Ipsum, cacilds vidis litro abertis. Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio. Paisis, filhis, espiritis santis. Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget.
+
+Não sou faixa preta cumpadi, sou preto inteiris, inteiris. Quem num gosta di mim que vai caçá sua turmis! Detraxit consequat et quo num tendi nada. Casamentiss faiz malandris se pirulitá.
+
+Atirei o pau no gatis, per gatis num morreus. Quem manda na minha terra sou euzis! Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl. Sapien in monti palavris qui num significa nadis i pareci latim.
+
 ## License
 
 This code is distributed under the terms and conditions of the [GNU General Public License v3.0](LICENSE).
