@@ -132,6 +132,7 @@
 				B1D0995D1FD74391009DFF74 /* Resources */,
 				39522686334423F4FEDFB538 /* [CP] Embed Pods Frameworks */,
 				31EA9BFC0B79C3C18A077488 /* [CP] Copy Pods Resources */,
+				9448EA981FD86BFD003C65A0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -224,6 +225,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DenApp/Pods-DenApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		9448EA981FD86BFD003C65A0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" ae82d5130c1646e1653a702861cd130f832b0e66 9d4d03ed1a67ad3ea2fe6c0c9508c2df81f08ff37f098e5facbae9839aa8bce6";
 		};
 		987020EEB6EAD5DF341FD91A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -395,9 +409,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AX8AGE2WAC;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DenApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.scopus.DenApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -412,9 +426,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AX8AGE2WAC;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DenApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.scopus.DenApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
