@@ -6,5 +6,8 @@ target 'DenApp' do
 
   pod 'KeychainSwift'
   pod 'IQKeyboardManagerSwift'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
 
 end
