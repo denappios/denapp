@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79061FED1FD86BBE00393505 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79061FEC1FD86BBE00393505 /* GoogleService-Info.plist */; };
 		B1D099631FD74391009DFF74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D099621FD74391009DFF74 /* AppDelegate.swift */; };
 		B1D099651FD74391009DFF74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D099641FD74391009DFF74 /* ViewController.swift */; };
 		B1D099681FD74391009DFF74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D099661FD74391009DFF74 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		4E31ECF4A8442F30182948CF /* Pods-DenApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DenApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DenApp/Pods-DenApp.debug.xcconfig"; sourceTree = "<group>"; };
+		79061FEC1FD86BBE00393505 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B1D0995F1FD74391009DFF74 /* DenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D099621FD74391009DFF74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1D099641FD74391009DFF74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		B1D099741FD743A4009DFF74 /* supportfiles */ = {
 			isa = PBXGroup;
 			children = (
+				79061FEC1FD86BBE00393505 /* GoogleService-Info.plist */,
 				B1D099621FD74391009DFF74 /* AppDelegate.swift */,
 				B1D099691FD74391009DFF74 /* Assets.xcassets */,
 				B1D0996B1FD74391009DFF74 /* LaunchScreen.storyboard */,
@@ -183,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1D0996D1FD74391009DFF74 /* LaunchScreen.storyboard in Resources */,
+				79061FED1FD86BBE00393505 /* GoogleService-Info.plist in Resources */,
 				B1D0996A1FD74391009DFF74 /* Assets.xcassets in Resources */,
 				B1D099681FD74391009DFF74 /* Main.storyboard in Resources */,
 			);
@@ -197,9 +201,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DenApp/Pods-DenApp-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -213,13 +220,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DenApp/Pods-DenApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
