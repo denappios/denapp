@@ -1,4 +1,7 @@
 PODS:
+  - Crashlytics (3.9.3):
+    - Fabric (~> 1.7.2)
+  - Fabric (1.7.2)
   - Firebase/Auth (4.7.0):
     - Firebase/Core
     - FirebaseAuth (= 4.4.0)
@@ -48,6 +51,8 @@ PODS:
   - nanopb/encode (0.3.8)
 
 DEPENDENCIES:
+  - Crashlytics
+  - Fabric
   - Firebase/Auth
   - Firebase/Core
   - GoogleSignIn
@@ -55,6 +60,8 @@ DEPENDENCIES:
   - KeychainSwift
 
 SPEC CHECKSUMS:
+  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
+  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
   Firebase: dbfb98ccec2dcfcd21ab9cc1b4981a3f3c8c5e26
   FirebaseAnalytics: 5b02a63ead2c3f0259cfc7f15e053e440587ecf8
   FirebaseAuth: cdeee95b528958dbb7dcf220ad0fb804d3a284b0

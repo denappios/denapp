@@ -7,6 +7,9 @@
 //
 
 import UIKit
+
+import Fabric
+import Crashlytics
 import Firebase
 import GoogleSignIn
 
@@ -19,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        Fabric.with([Crashlytics.self])
         
         // Use Firebase library to configure APIs
         FirebaseApp.configure()

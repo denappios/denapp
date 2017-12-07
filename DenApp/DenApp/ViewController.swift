@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 import Firebase
 import GoogleSignIn
 
@@ -62,6 +63,15 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+    func logUser() {
+        // TODO: incluir as chamadas abaixo apos o processo de login
+        // essas informacoes deverao ser gravadas no Keychain
+        Crashlytics.sharedInstance().setUserEmail("user@fabric.io")
+        Crashlytics.sharedInstance().setUserIdentifier("12345")
+        Crashlytics.sharedInstance().setUserName("Test User")
+    }
+
 
 }
 
