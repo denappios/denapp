@@ -213,6 +213,106 @@
             </objects>
             <point key="canvasLocation" x="782" y="426"/>
         </scene>
+        <!--Configuration View Controller-->
+        <scene sceneID="mZx-jR-O3V">
+            <objects>
+                <viewController id="2vs-Uq-4cX" customClass="ConfigurationViewController" customModule="DenApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tUc-UI-YH3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raio de Alcance (KM): " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLU-yS-8Pp">
+                                <rect key="frame" x="22" y="50" width="147" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="p7R-OL-J23"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo Favorito: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQV-1E-Yfd">
+                                <rect key="frame" x="22" y="131" width="91.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="zan-HZ-gsK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tiX-lr-Wj7">
+                                <rect key="frame" x="22" y="79" width="331" height="29"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="am7-cb-Q75"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title=""/>
+                                    <segment title=""/>
+                                </segments>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="alterRangeRadius:" destination="2vs-Uq-4cX" eventType="valueChanged" id="7dj-z9-Ro9"/>
+                                </connections>
+                            </segmentedControl>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arb-GU-CIH">
+                                <rect key="frame" x="22" y="160" width="331" height="216"/>
+                            </pickerView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Wh-UW-UcB">
+                                <rect key="frame" x="22" y="429" width="49" height="31"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="daH-HV-h2Q"/>
+                                    <constraint firstAttribute="width" constant="47" id="doR-Hw-8Ss"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="alterGetNotification:" destination="2vs-Uq-4cX" eventType="valueChanged" id="VSU-wG-AbL"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receber Notificação? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WA4-45-ZwQ">
+                                <rect key="frame" x="22" y="400" width="142" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="yIL-UD-UBq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WA4-45-ZwQ" firstAttribute="top" secondItem="arb-GU-CIH" secondAttribute="bottom" constant="24" id="0yX-2F-RpT"/>
+                            <constraint firstItem="uQV-1E-Yfd" firstAttribute="top" secondItem="tiX-lr-Wj7" secondAttribute="bottom" constant="24" id="GJD-CH-lxw"/>
+                            <constraint firstItem="9Wh-UW-UcB" firstAttribute="leading" secondItem="tmL-yA-ZK5" secondAttribute="leading" constant="22" id="JNs-th-AAP"/>
+                            <constraint firstItem="tmL-yA-ZK5" firstAttribute="trailing" secondItem="tiX-lr-Wj7" secondAttribute="trailing" constant="22" id="JUP-rB-rpP"/>
+                            <constraint firstItem="sLU-yS-8Pp" firstAttribute="top" secondItem="tmL-yA-ZK5" secondAttribute="top" constant="30" id="JXa-1a-JV4"/>
+                            <constraint firstItem="arb-GU-CIH" firstAttribute="top" secondItem="uQV-1E-Yfd" secondAttribute="bottom" constant="8" id="K4a-ra-t9U"/>
+                            <constraint firstItem="sLU-yS-8Pp" firstAttribute="leading" secondItem="tmL-yA-ZK5" secondAttribute="leading" constant="22" id="NW9-dE-C9g"/>
+                            <constraint firstItem="arb-GU-CIH" firstAttribute="top" secondItem="uQV-1E-Yfd" secondAttribute="bottom" constant="8" id="Or3-t3-syw"/>
+                            <constraint firstItem="tmL-yA-ZK5" firstAttribute="trailing" secondItem="arb-GU-CIH" secondAttribute="trailing" constant="22" id="RFC-3c-nHl"/>
+                            <constraint firstItem="tiX-lr-Wj7" firstAttribute="leading" secondItem="tmL-yA-ZK5" secondAttribute="leading" constant="22" id="UMx-WQ-aiT"/>
+                            <constraint firstItem="arb-GU-CIH" firstAttribute="leading" secondItem="tmL-yA-ZK5" secondAttribute="leading" constant="22" id="VAG-fP-pNM"/>
+                            <constraint firstItem="WA4-45-ZwQ" firstAttribute="leading" secondItem="tmL-yA-ZK5" secondAttribute="leading" constant="22" id="XS8-55-feA"/>
+                            <constraint firstItem="tiX-lr-Wj7" firstAttribute="top" secondItem="sLU-yS-8Pp" secondAttribute="bottom" constant="8" id="aCC-5p-euw"/>
+                            <constraint firstItem="9Wh-UW-UcB" firstAttribute="top" secondItem="WA4-45-ZwQ" secondAttribute="bottom" constant="8" id="arA-hn-h2s"/>
+                            <constraint firstItem="uQV-1E-Yfd" firstAttribute="top" secondItem="tiX-lr-Wj7" secondAttribute="bottom" constant="24" id="dcN-Oe-BFl"/>
+                            <constraint firstItem="tiX-lr-Wj7" firstAttribute="top" secondItem="sLU-yS-8Pp" secondAttribute="bottom" constant="8" id="kEO-e8-uQj"/>
+                            <constraint firstItem="uQV-1E-Yfd" firstAttribute="leading" secondItem="tmL-yA-ZK5" secondAttribute="leading" constant="22" id="pLr-8v-xl4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tmL-yA-ZK5"/>
+                    </view>
+                    <connections>
+                        <outlet property="pickerFavorite" destination="arb-GU-CIH" id="Ixh-fH-ACo"/>
+                        <outlet property="segmentRangeRadius" destination="tiX-lr-Wj7" id="UoB-VC-BNM"/>
+                        <outlet property="switchNotification" destination="9Wh-UW-UcB" id="DFn-jS-iGN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g0c-6s-hqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="781.60000000000002" y="1129.385307346327"/>
+        </scene>
         <!--Item 1-->
         <scene sceneID="Fnm-XD-nEO">
             <objects>
@@ -391,4 +491,7 @@
         <image name="iconFacebook" width="512" height="512"/>
         <image name="iconPassWhite" width="19" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="fE1-ZR-Zfi"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CCEB54D1FDEFE920026E99F /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCEB54C1FDEFE920026E99F /* ConfigurationViewController.swift */; };
 		79BBC1EE1FDB4944008B676C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79BBC1ED1FDB4943008B676C /* GoogleService-Info.plist */; };
 		B1252F821FDDCDF300226544 /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1252F811FDDCDF300226544 /* Modal.swift */; };
 		B1252F841FDDCE3900226544 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1252F831FDDCE3900226544 /* Calendar.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CCEB54C1FDEFE920026E99F /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		4E31ECF4A8442F30182948CF /* Pods-DenApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DenApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DenApp/Pods-DenApp.debug.xcconfig"; sourceTree = "<group>"; };
 		79BBC1ED1FDB4943008B676C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B1252F811FDDCDF300226544 /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				B1D0997E1FD758E1009DFF74 /* FisrtAccessViewController.swift */,
 				B1D099801FD75B08009DFF74 /* Constants.swift */,
 				B1252F891FDDDA7600226544 /* TabBarViewController.swift */,
+				0CCEB54C1FDEFE920026E99F /* ConfigurationViewController.swift */,
 			);
 			path = DenApp;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				B1D099651FD74391009DFF74 /* LoginViewController.swift in Sources */,
 				B1252F821FDDCDF300226544 /* Modal.swift in Sources */,
 				B1D099631FD74391009DFF74 /* AppDelegate.swift in Sources */,
+				0CCEB54D1FDEFE920026E99F /* ConfigurationViewController.swift in Sources */,
 				B1D099811FD75B08009DFF74 /* Constants.swift in Sources */,
 				B1252F861FDDCEE700226544 /* Designables.swift in Sources */,
 				B1D0997F1FD758E1009DFF74 /* FisrtAccessViewController.swift in Sources */,
