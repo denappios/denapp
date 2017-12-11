@@ -19,7 +19,7 @@
 		B1D099681FD74391009DFF74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D099661FD74391009DFF74 /* Main.storyboard */; };
 		B1D0996A1FD74391009DFF74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1D099691FD74391009DFF74 /* Assets.xcassets */; };
 		B1D0996D1FD74391009DFF74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D0996B1FD74391009DFF74 /* LaunchScreen.storyboard */; };
-		B1D0997F1FD758E1009DFF74 /* FisrtAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D0997E1FD758E1009DFF74 /* FisrtAccessViewController.swift */; };
+		B1D0997F1FD758E1009DFF74 /* FirstAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D0997E1FD758E1009DFF74 /* FirstAccessViewController.swift */; };
 		B1D099811FD75B08009DFF74 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D099801FD75B08009DFF74 /* Constants.swift */; };
 		FBF8AA3EED247B6184F85A52 /* Pods_DenApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6754B4133A198594F45115 /* Pods_DenApp.framework */; };
 /* End PBXBuildFile section */
@@ -40,7 +40,7 @@
 		B1D099691FD74391009DFF74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1D0996C1FD74391009DFF74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1D0996E1FD74391009DFF74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B1D0997E1FD758E1009DFF74 /* FisrtAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FisrtAccessViewController.swift; sourceTree = "<group>"; };
+		B1D0997E1FD758E1009DFF74 /* FirstAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAccessViewController.swift; sourceTree = "<group>"; };
 		B1D099801FD75B08009DFF74 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D4D81797FA122EDBF4D80CC3 /* Pods-DenApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DenApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DenApp/Pods-DenApp.release.xcconfig"; sourceTree = "<group>"; };
 		FF6754B4133A198594F45115 /* Pods_DenApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DenApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +111,7 @@
 				B1D099741FD743A4009DFF74 /* supportfiles */,
 				B1D099641FD74391009DFF74 /* LoginViewController.swift */,
 				B1D099661FD74391009DFF74 /* Main.storyboard */,
-				B1D0997E1FD758E1009DFF74 /* FisrtAccessViewController.swift */,
+				B1D0997E1FD758E1009DFF74 /* FirstAccessViewController.swift */,
 				B1D099801FD75B08009DFF74 /* Constants.swift */,
 				B1252F891FDDDA7600226544 /* TabBarViewController.swift */,
 				0CCEB54C1FDEFE920026E99F /* ConfigurationViewController.swift */,
@@ -298,7 +298,7 @@
 				0CCEB54D1FDEFE920026E99F /* ConfigurationViewController.swift in Sources */,
 				B1D099811FD75B08009DFF74 /* Constants.swift in Sources */,
 				B1252F861FDDCEE700226544 /* Designables.swift in Sources */,
-				B1D0997F1FD758E1009DFF74 /* FisrtAccessViewController.swift in Sources */,
+				B1D0997F1FD758E1009DFF74 /* FirstAccessViewController.swift in Sources */,
 				B1252F881FDDCF2C00226544 /* MsgAlert.swift in Sources */,
 				B1252F8A1FDDDA7600226544 /* TabBarViewController.swift in Sources */,
 				B1252F841FDDCE3900226544 /* Calendar.swift in Sources */,
@@ -444,7 +444,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"~/Documents/FacebookSDKs-iOS-4.29.0/",
 				);
 				INFOPLIST_FILE = DenApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
@@ -466,7 +465,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"~/Documents/FacebookSDKs-iOS-4.29.0/",
 				);
 				INFOPLIST_FILE = DenApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
