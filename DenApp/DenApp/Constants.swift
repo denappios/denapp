@@ -14,7 +14,8 @@ class Constants {
     public static let emailKey:String =  "emailKey"
     public static let password:String =  "passwordKey"
     
-    
-    
+    static let rangeRadius = "RangeRadius"
+    static let favoriteType = "FavoriteType"
+    static let getNotification = "GetNotification"
     
 }
