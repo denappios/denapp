@@ -11,12 +11,17 @@ import Firebase
 import GoogleSignIn
 import SCLAlertView
 import FoldingTabBar
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
     @IBOutlet weak var signInButton: GIDSignInButton!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
+    
+    @IBOutlet weak var fbLoginButton: FBSDKLoginButton!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -26,9 +31,49 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         signInButton.style = GIDSignInButtonStyle.iconOnly
         // TODO(developer) Configure the sign-in button look/feel
         // ...
+
+        
+        //if the user is already logged in
+        /*if let accessToken = FBSDKAccessToken.current(){
+            getFBUserData()
+        }*/
         
     }
 
+    //function is fetching the user data
+    func getFBUserData(){
+        if((FBSDKAccessToken.current()) != nil){
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+                if (error == nil){
+                    //self.dict = result as! [String : AnyObject]
+                    //print(result!)
+                    //print(self.dict)
+                    print("erro")
+                }
+            })
+        }
+    }
+    
+    
+    @IBAction func fbLoginAction(_ sender: Any) {
+        
+        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+        
+        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) -> Void in
+            
+            if error != nil {
+                NSLog("Process error")
+            }
+            else if (result?.isCancelled)! {
+                NSLog("Cancelled")
+            }
+            else {
+                NSLog("Logged in")
+                self.getFBUserData()
+            }
+        }
+    }
+    
     @IBAction func btnLogin(_ sender: Any) {
        
         if "" == txtEmail.text || "" == txtPassword.text {
