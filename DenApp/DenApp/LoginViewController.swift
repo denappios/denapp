@@ -20,8 +20,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     
-    @IBOutlet weak var fbLoginButton: FBSDKLoginButton!
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -34,9 +32,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
         
         //if the user is already logged in
-        /*if let accessToken = FBSDKAccessToken.current(){
+        if let accessToken = FBSDKAccessToken.current(){
             getFBUserData()
-        }*/
+        }
         
     }
 
@@ -115,9 +113,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         tabBarController.centerButtonImage = UIImage(named:"plus_icon")!
         tabBarController.selectedIndex = 0
         
-        
-        
-        
         tabBarController.tabBarView.dotColor = UIColor(
             red: 94.0/255.0,
             green: 91.0/255.0,
@@ -138,9 +133,24 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         self.present(tabObj!, animated: true, completion: nil)
         
     }
-
-  
     
+    
+    
+    @IBAction func loginEmailPass(_ sender: Any) {
+        
+        Auth.auth().signIn(withEmail: self.txtEmail.text!, password: self.txtPassword.text!) { (user, error) in
+            
+            print("User: \(user)")
+            print("Error: \(error)")
+            
+            if error != nil {
+                MsgAlert().alert("Erro ao realizar login", "DenApp", .error)
+            } else {
+                MsgAlert().alert("Login realizado com sucesso", "DenApp", .success)
+            }
+
+        }
+    }
     
 
 }
