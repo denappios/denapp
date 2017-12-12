@@ -38,7 +38,7 @@ class TabBarViewController: YALFoldingTabBarController, YALTabBarDelegate {
     }
     
     func  tabBarDidSelectExtraRightItem(_ tabBar: YALFoldingTabBar) {
-        print("Configurção")
+        self.performSegue(withIdentifier: "showSettings", sender: nil)
     }
     
     func tabBar(_ tabBar: YALFoldingTabBar, didSelectItemAt index: UInt) {

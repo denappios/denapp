@@ -7,43 +7,31 @@
 //
 
 import UIKit
+import Floaty
 
-struct PickerKeyValue {
-    let key: Int
-    let value: String
-}
 
-class ConfigurationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ConfigurationViewController: UIViewController, DropDownMenuDelegate {
     
+    @IBOutlet weak var dropDenuncia: DropDownMenu!
     @IBOutlet weak var segmentRangeRadius: UISegmentedControl!
-    @IBOutlet weak var pickerFavorite: UIPickerView!
     @IBOutlet weak var switchNotification: UISwitch!
     
-    let arrayOne = [PickerKeyValue(key: 0, value: "Alagamento"),
-                    PickerKeyValue(key: 1, value: "Assalto"),
-                    PickerKeyValue(key: 2, value: "Engarrafamento"),
-                    PickerKeyValue(key: 3, value: "Passeata"),
-                    PickerKeyValue(key: 4, value: "Tiroteio")]
+    @IBOutlet weak var btnBack: Floaty!
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.arrayOne.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        UserDefaults.standard.set(arrayOne[row].key, forKey: Constants.favoriteType)
-        return arrayOne[row].value
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.pickerFavorite.delegate = self
-        self.pickerFavorite.dataSource = self
+         self.dropDenuncia.items = ["Incêndio", "Acidente", "Crime", "Animais Silvestre"];
+        self.dropDenuncia.itemsIDs = [0, 1, 2, 3];
+        self.dropDenuncia.titleTextAlignment = NSTextAlignment.left;
+        self.dropDenuncia.delegate = self;
+        
         loadRangeRadius()
         loadUserDefaults()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.backPage))
+        btnBack.addGestureRecognizer(tapGesture)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,8 +55,26 @@ class ConfigurationViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     func loadUserDefaults() {
         self.segmentRangeRadius.selectedSegmentIndex = UserDefaults.standard.integer(forKey: Constants.rangeRadius)
-        self.pickerFavorite.selectRow(UserDefaults.standard.integer(forKey: Constants.favoriteType), inComponent: 0, animated: false)
-        self.switchNotification.isOn = UserDefaults.standard.bool(forKey: Constants.getNotification) 
+        self.switchNotification.isOn = UserDefaults.standard.bool(forKey: Constants.getNotification)
+        self.dropDenuncia.selectedIndex = UserDefaults.standard.integer(forKey: Constants.favoriteType)
+        self.dropDenuncia.selectedStart = true
     }
+    
+    func didSelectItem(_ dropDownMenu: DropDownMenu, at atIndex: Int) {
+         UserDefaults.standard.set(self.dropDenuncia.itemsIDs[atIndex], forKey: Constants.favoriteType)
+    }
+    
+    func didShow(_ dropDownMenu: DropDownMenu) {
+        
+    }
+    
+    func didHide(_ dropDownMenu: DropDownMenu) {
+        
+    }
+    
+    @objc func backPage() {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
 }
