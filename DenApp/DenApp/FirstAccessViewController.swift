@@ -49,24 +49,10 @@ class FirstAccessViewController: UIViewController {
                     
                     self.ref.child("users").child(userId).setValue(["email": self.txtEmail.text!, "password": self.txtPassword.text!])
                     
-                    self.ref.child("pins").child(userId).setValue(["type" : "accident", "lat": arc4random(), "lon": arc4random()])
+                    self.ref.child("pins").child(userId).setValue(["type" : "accident", "lat": String(arc4random()), "lon": String(arc4random())])
                     
                     
                     let pinsRef = self.ref.child("pins")
-                    
-                    pinsRef.observe(DataEventType.value, with: { (snapshot) in
-                    
-                        let pinsDict = snapshot.value as? [String : AnyObject] ?? [:]
-                        
-                        for pin in pinsDict {
-                            
-                            
-                            
-                        }
-                        
-                    })
-                    
-                        
                     
                     
                     pinsRef.observe(DataEventType.value, with: { (snapshot) in
@@ -83,15 +69,23 @@ class FirstAccessViewController: UIViewController {
                                 for snap in snapshots {
                                     //getting values
                                     
-                                    print("snap.key \(snap.key)")
-                                    print("snap.value \(snap.value as? [String:String])")
+                                    //print("snap.key \(snap.key)")
+                                    //print("snap.value \(snap.value as? [String:String])")
                                     
-                                    let values = snap.children.allObjects as! [DataSnapshot]
+                                    let pin = snap.value as? [String:String]
                                     
-                                    print("\(values[0].key) \(values[0].value as! Int)")
-                                    print("\(values[1].key) \(values[1].value as! Int)")
-                                    print("\(values[2].key) \(values[2].value as! String)")
-
+                                    for fields in pin! {
+                                        print("- \(fields.key) \(fields.value)")
+                                    }
+                                    
+                                    /*
+                                    let temp = snap.children.allObjects as! [DataSnapshot]
+                                    
+                                    print("\(temp[0].key) \(temp[0].value as! String)")
+                                    print("\(temp[1].key) \(temp[1].value as! String)")
+                                    print("\(temp[2].key) \(temp[2].value as! String)")
+                                    print(" ")
+                                    */
                                 }
                                 
                             }
