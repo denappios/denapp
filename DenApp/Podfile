@@ -8,6 +8,7 @@ target 'DenApp' do
   pod 'IQKeyboardManagerSwift'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
   pod 'GoogleSignIn'
   pod 'FoldingTabBar', '~> 1.1.2'
   pod 'Floaty', '~> 4.0.0'
