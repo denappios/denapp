@@ -205,9 +205,7 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
             })
             
             if delegate != nil {
-                if (delegate?.responds(to: Selector("didHide:self")))! {
-                    delegate?.didHide(self)
-                }
+                delegate?.didHide(self)
             }
             var view = UIView(frame: UIScreen.main.bounds)
             view.tag = 99121
@@ -240,9 +238,7 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
             })
             superview?.viewWithTag(99121)?.removeFromSuperview()
             if delegate != nil {
-                if (delegate?.responds(to: Selector("didShow:self")))! {
-                    delegate?.didShow(self)
-                }
+                delegate?.didShow(self)
             }
         }
     }
@@ -289,9 +285,7 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
         isCollapsed = true
         collapseTableView()
         if delegate != nil {
-            if (delegate?.responds(to: Selector(("didSelectItem:atIndex:"))))! {
-                delegate?.didSelectItem(self, at: selectedIndex)
-            }
+            delegate?.didSelectItem(self, at: selectedIndex)
         }
     }
     
