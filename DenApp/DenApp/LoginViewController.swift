@@ -25,7 +25,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         super.viewDidLoad()
         
         GIDSignIn.sharedInstance().uiDelegate = self
-        //GIDSignIn.sharedInstance().signIn()
         signInButton.style = GIDSignInButtonStyle.iconOnly
         // TODO(developer) Configure the sign-in button look/feel
         // ...
@@ -79,7 +78,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
  
         }
          else {
-           setupTabBarController()
+           //setupTabBarController()
         }
      }
     
@@ -137,19 +136,19 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     
     @IBAction func loginEmailPass(_ sender: Any) {
-        
-        Auth.auth().signIn(withEmail: self.txtEmail.text!, password: self.txtPassword.text!) { (user, error) in
+        setupTabBarController()
+        //Auth.auth().signIn(withEmail: self.txtEmail.text!, password: self.txtPassword.text!) { (user, error) in
             
-            print("User: \(user)")
-            print("Error: \(error)")
+          //  print("User: \(user)")
+          //  print("Error: \(error)")
             
-            if error != nil {
-                MsgAlert().alert("Erro ao realizar login", "DenApp", .error)
-            } else {
-                MsgAlert().alert("Login realizado com sucesso", "DenApp", .success)
-            }
+           // if error != nil {
+           //     MsgAlert().alert("Erro ao realizar login", "DenApp", .error)
+          //  } else {
+           //     MsgAlert().alert("Login realizado com sucesso", "DenApp", .success)
+           // }
 
-        }
+        //}
     }
     
 
