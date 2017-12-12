@@ -51,6 +51,44 @@ class FirstAccessViewController: UIViewController {
                     
                     self.ref.child("pins").child(userId).setValue(["type" : "accident", "lat": arc4random(), "lon": arc4random()])
                     
+                    
+                    let pinsRef = self.ref.child("pins")
+                    
+                    pinsRef.observe(DataEventType.value, with: { (snapshot) in
+                        
+                        if snapshot.childrenCount > 0 {
+                            
+                            print("snap.childrenCount \(snapshot.childrenCount)")
+                            
+                            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                                //iterating through all the values
+                                
+                                print("snapshots.count \(snapshots.count)")
+                                
+                                for snap in snapshots {
+                                    //getting values
+                                    
+                                    print("snap.key \(snap.key)")
+                                    print("snap.value \(snap.value as? [String:String])")
+                                    
+                                    let values = snap.children.allObjects as! [DataSnapshot]
+                                    
+                                    print("\(values[0].key) \(values[0].value as! Int)")
+                                    print("\(values[1].key) \(values[1].value as! Int)")
+                                    print("\(values[2].key) \(values[2].value as! String)")
+
+                                }
+                                
+                            }
+        
+                            
+                        } else {
+                            print("vazio")
+                        }
+                        
+                    })
+                    
+                    
                     MsgAlert().alert("Usuário cadastrado com sucesso", "DenApp", .success)
                 }
             }
