@@ -21,6 +21,7 @@
 		B1D0996D1FD74391009DFF74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D0996B1FD74391009DFF74 /* LaunchScreen.storyboard */; };
 		B1D0997F1FD758E1009DFF74 /* FirstAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D0997E1FD758E1009DFF74 /* FirstAccessViewController.swift */; };
 		B1D099811FD75B08009DFF74 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D099801FD75B08009DFF74 /* Constants.swift */; };
+		F9D2CC031FE030CD00B0D9B0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D2CC021FE030CD00B0D9B0 /* MapViewController.swift */; };
 		FBF8AA3EED247B6184F85A52 /* Pods_DenApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6754B4133A198594F45115 /* Pods_DenApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		B1D0997E1FD758E1009DFF74 /* FirstAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAccessViewController.swift; sourceTree = "<group>"; };
 		B1D099801FD75B08009DFF74 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D4D81797FA122EDBF4D80CC3 /* Pods-DenApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DenApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DenApp/Pods-DenApp.release.xcconfig"; sourceTree = "<group>"; };
+		F9D2CC021FE030CD00B0D9B0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FF6754B4133A198594F45115 /* Pods_DenApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DenApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -114,6 +116,7 @@
 				B1D0997E1FD758E1009DFF74 /* FirstAccessViewController.swift */,
 				B1D099801FD75B08009DFF74 /* Constants.swift */,
 				B1252F891FDDDA7600226544 /* TabBarViewController.swift */,
+				F9D2CC021FE030CD00B0D9B0 /* MapViewController.swift */,
 				0CCEB54C1FDEFE920026E99F /* ConfigurationViewController.swift */,
 			);
 			path = DenApp;
@@ -240,6 +243,8 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -259,6 +264,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -294,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9D2CC031FE030CD00B0D9B0 /* MapViewController.swift in Sources */,
 				B1D099651FD74391009DFF74 /* LoginViewController.swift in Sources */,
 				B1252F821FDDCDF300226544 /* Modal.swift in Sources */,
 				B1D099631FD74391009DFF74 /* AppDelegate.swift in Sources */,

@@ -55,6 +55,21 @@ class FirstAccessViewController: UIViewController {
                     let pinsRef = self.ref.child("pins")
                     
                     pinsRef.observe(DataEventType.value, with: { (snapshot) in
+                    
+                        let pinsDict = snapshot.value as? [String : AnyObject] ?? [:]
+                        
+                        for pin in pinsDict {
+                            
+                            
+                            
+                        }
+                        
+                    })
+                    
+                        
+                    
+                    
+                    pinsRef.observe(DataEventType.value, with: { (snapshot) in
                         
                         if snapshot.childrenCount > 0 {
                             

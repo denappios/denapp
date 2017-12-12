@@ -357,7 +357,7 @@
         <!--Item 1-->
         <scene sceneID="Fnm-XD-nEO">
             <objects>
-                <viewController id="ycw-im-hbf" sceneMemberID="viewController">
+                <viewController id="ycw-im-hbf" customClass="MapViewController" customModule="DenApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jrl-um-G4J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
