@@ -554,7 +554,4 @@
         <image name="iconFacebook" width="512" height="512"/>
         <image name="iconPassWhite" width="19" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="fE1-ZR-Zfi"/>
-    </inferredMetricsTieBreakers>
 </document>

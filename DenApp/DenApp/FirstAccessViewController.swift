@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 
 class FirstAccessViewController: UIViewController {
@@ -19,8 +20,14 @@ class FirstAccessViewController: UIViewController {
     
     @IBOutlet weak var txtConfirmaPassword: UITextField!
     
+    var ref: DatabaseReference!
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        // Criando referência para o banco de dados
+        ref = Database.database().reference()
 
     }
     
@@ -37,6 +44,13 @@ class FirstAccessViewController: UIViewController {
                 if error != nil {
                     MsgAlert().alert("Erro ao cadastrar e-mail", "DenApp", .error)
                 } else {
+                    
+                    let userId = String(arc4random())
+                    
+                    self.ref.child("users").child(userId).setValue(["email": self.txtEmail.text!, "password": self.txtPassword.text!])
+                    
+                    self.ref.child("pins").child(userId).setValue(["type" : "accident", "lat": arc4random(), "lon": arc4random()])
+                    
                     MsgAlert().alert("Usuário cadastrado com sucesso", "DenApp", .success)
                 }
             }
