@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2vs-Uq-4cX">
-    <device id="retina3_5" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,14 +15,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="DenApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundLogin" translatesAutoresizingMaskIntoConstraints="NO" id="Vki-6c-xX6">
-                                <rect key="frame" x="0.0" y="0.0" width="1440" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EMAIL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M08-Dz-kCw" customClass="DesignableTextField" customModule="DenApp" customModuleProvider="target">
-                                <rect key="frame" x="22" y="174" width="1396" height="46"/>
+                                <rect key="frame" x="22" y="174" width="331" height="46"/>
                                 <color key="backgroundColor" red="0.46436786167512689" green="0.46436786167512689" blue="0.46436786167512689" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -63,13 +63,13 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKa-ww-SzO">
-                                <rect key="frame" x="22" y="416" width="1396" height="21"/>
+                                <rect key="frame" x="22" y="416" width="331" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHO-dU-dYL">
-                                <rect key="frame" x="252" y="431" width="66" height="30"/>
+                                <rect key="frame" x="252" y="618" width="66" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Sigin Up.">
                                     <color key="titleColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -87,7 +87,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obm-Yt-N93" customClass="DesignableButton" customModule="DenApp" customModuleProvider="target">
-                                <rect key="frame" x="70" y="353" width="1300" height="34"/>
+                                <rect key="frame" x="70" y="353" width="235" height="34"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="PTQ-fG-Jwl"/>
@@ -129,15 +129,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account yet?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzR-Lf-cFs">
-                                <rect key="frame" x="22" y="435" width="220" height="21"/>
+                                <rect key="frame" x="22" y="622" width="220" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TitleDenApp2" translatesAutoresizingMaskIntoConstraints="NO" id="El8-oZ-YHg">
-                                <rect key="frame" x="81" y="33" width="1278" height="99"/>
+                                <rect key="frame" x="81" y="33" width="213" height="99"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="213" id="7aq-hR-wuK"/>
                                     <constraint firstAttribute="height" constant="99" id="snp-x9-UG6"/>
                                 </constraints>
                             </imageView>
@@ -153,7 +152,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgS-ML-lo3" customClass="DesignableTextField" customModule="DenApp" customModuleProvider="target">
-                                <rect key="frame" x="22" y="254" width="1396" height="46"/>
+                                <rect key="frame" x="22" y="254" width="331" height="46"/>
                                 <color key="backgroundColor" red="0.4643678617" green="0.4643678617" blue="0.4643678617" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -243,7 +242,7 @@
             <objects>
                 <viewController id="Hor-6v-Tsw" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fdx-n8-eGd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="y9w-Om-tBo"/>
@@ -259,7 +258,7 @@
             <objects>
                 <viewController id="2vs-Uq-4cX" customClass="ConfigurationViewController" customModule="DenApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tUc-UI-YH3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Raio de Alcance (KM): " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLU-yS-8Pp">
@@ -275,7 +274,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tiX-lr-Wj7">
-                                <rect key="frame" x="16" y="75" width="282" height="41"/>
+                                <rect key="frame" x="16" y="75" width="337" height="41"/>
                                 <color key="backgroundColor" red="0.7408407049367971" green="0.74817576142131981" blue="0.74817576142131981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="8un-Oc-27T"/>
@@ -297,16 +296,16 @@
                                 </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="e1F-d3-xkR">
-                                <rect key="frame" x="22" y="272" width="288" height="31"/>
+                                <rect key="frame" x="22" y="272" width="343" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receber Notificação? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WA4-45-ZwQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="139" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="166.5" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Wh-UW-UcB">
-                                        <rect key="frame" x="149" y="0.0" width="141" height="31"/>
+                                        <rect key="frame" x="176.5" y="0.0" width="168.5" height="31"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
@@ -316,7 +315,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2FW-Qp-UP9" customClass="DropDownMenu" customModule="DenApp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="173" width="282" height="40"/>
+                                <rect key="frame" x="16" y="173" width="337" height="40"/>
                                 <color key="backgroundColor" red="0.74084070489999998" green="0.74817576139999997" blue="0.74817576139999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -338,7 +337,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVa-eB-pci" customClass="Floaty" customModule="Floaty">
-                                <rect key="frame" x="16" y="420" width="50" height="50"/>
+                                <rect key="frame" x="16" y="607" width="105" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Cs0-gz-Fty"/>
@@ -400,7 +399,7 @@
             <objects>
                 <viewController id="ycw-im-hbf" customClass="MapViewController" customModule="DenApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jrl-um-G4J">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="NVZ-Hz-ZDH"/>
@@ -435,7 +434,7 @@
             <objects>
                 <viewController id="ix2-fE-3Gh" customClass="FirstAccessViewController" customModule="DenApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9sp-2H-Yvh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qBs-nm-Gso">
@@ -452,7 +451,7 @@
                                 <color key="barTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Sb-F8-Rv7" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="22" y="124" width="276" height="65"/>
+                                <rect key="frame" x="22" y="124" width="331" height="65"/>
                                 <color key="tintColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="p1z-6t-Jrv"/>
@@ -476,7 +475,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q4S-ce-RCk" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="22" y="343" width="276" height="65"/>
+                                <rect key="frame" x="22" y="343" width="331" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="b4S-JT-W8b"/>
                                 </constraints>
@@ -499,7 +498,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtq-I9-0AY" customClass="DesignableButton" customModule="DenApp" customModuleProvider="target">
-                                <rect key="frame" x="35" y="481" width="250" height="45"/>
+                                <rect key="frame" x="35" y="481" width="305" height="45"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="e8i-2j-qEw"/>
@@ -536,7 +535,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eXv-TS-yhv" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="22" y="228" width="276" height="65"/>
+                                <rect key="frame" x="22" y="228" width="331" height="65"/>
                                 <color key="tintColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="G6t-Fd-auZ"/>
