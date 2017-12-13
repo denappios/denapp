@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DKb-OI-U5J">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--First Access View Controller-->
+        <scene sceneID="TrH-SM-qbq">
+            <objects>
+                <viewController id="DKb-OI-U5J" customClass="FirstAccessViewController" customModule="DenApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Igw-W6-Qzh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AMh-ra-IUF">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <barButtonItem title="Back" style="done" id="yJW-jZ-cUU">
+                                        <color key="tintColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="btnBack:" destination="DKb-OI-U5J" id="QIW-K2-67p"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </toolbar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D4y-f7-Ht7" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                <rect key="frame" x="22" y="124" width="331" height="65"/>
+                                <color key="tintColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="wpe-ET-b8f"/>
+                                </constraints>
+                                <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dg4-2l-YQt" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                <rect key="frame" x="22" y="343" width="331" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="MhT-pU-su6"/>
+                                </constraints>
+                                <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6SE-2i-Yzs" customClass="DesignableButton" customModule="DenApp" customModuleProvider="target">
+                                <rect key="frame" x="35" y="481" width="305" height="45"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="FVa-h7-NJ2"/>
+                                </constraints>
+                                <state key="normal" title="SAVE">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.92729485909999998" green="0.92729485909999998" blue="0.92729485909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetY">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetX">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" red="0.92729485909999998" green="0.92729485909999998" blue="0.92729485909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="save:" destination="DKb-OI-U5J" eventType="touchUpInside" id="7f1-Cx-8L0"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ttf-uz-rzr" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                <rect key="frame" x="22" y="228" width="331" height="65"/>
+                                <color key="tintColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="h6g-ej-RXe"/>
+                                </constraints>
+                                <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ovb-Mr-aac" firstAttribute="trailing" secondItem="dg4-2l-YQt" secondAttribute="trailing" constant="22" id="1RG-20-W7k"/>
+                            <constraint firstItem="ovb-Mr-aac" firstAttribute="trailing" secondItem="ttf-uz-rzr" secondAttribute="trailing" constant="22" id="4e2-7N-VN2"/>
+                            <constraint firstItem="AMh-ra-IUF" firstAttribute="top" secondItem="ovb-Mr-aac" secondAttribute="top" id="ENm-1e-1nJ"/>
+                            <constraint firstItem="6SE-2i-Yzs" firstAttribute="leading" secondItem="ovb-Mr-aac" secondAttribute="leading" constant="35" id="HK0-cK-36N"/>
+                            <constraint firstItem="ovb-Mr-aac" firstAttribute="trailing" secondItem="6SE-2i-Yzs" secondAttribute="trailing" constant="35" id="P8M-RZ-Po4"/>
+                            <constraint firstItem="ttf-uz-rzr" firstAttribute="top" secondItem="D4y-f7-Ht7" secondAttribute="bottom" constant="39" id="QAB-5c-7jl"/>
+                            <constraint firstItem="dg4-2l-YQt" firstAttribute="top" secondItem="ttf-uz-rzr" secondAttribute="bottom" constant="50" id="QZs-04-sz0"/>
+                            <constraint firstItem="D4y-f7-Ht7" firstAttribute="top" secondItem="AMh-ra-IUF" secondAttribute="bottom" constant="60" id="R67-gb-5S4"/>
+                            <constraint firstItem="dg4-2l-YQt" firstAttribute="leading" secondItem="ovb-Mr-aac" secondAttribute="leading" constant="22" id="bsd-mr-e11"/>
+                            <constraint firstItem="6SE-2i-Yzs" firstAttribute="top" secondItem="dg4-2l-YQt" secondAttribute="bottom" constant="73" id="eb1-OY-tEe"/>
+                            <constraint firstItem="ttf-uz-rzr" firstAttribute="leading" secondItem="ovb-Mr-aac" secondAttribute="leading" constant="22" id="fVg-Et-ksb"/>
+                            <constraint firstItem="D4y-f7-Ht7" firstAttribute="leading" secondItem="ovb-Mr-aac" secondAttribute="leading" constant="22" id="hFK-TP-yT1"/>
+                            <constraint firstItem="ovb-Mr-aac" firstAttribute="trailing" secondItem="D4y-f7-Ht7" secondAttribute="trailing" constant="22" id="sqr-3G-0Tk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ovb-Mr-aac"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnBack" destination="yJW-jZ-cUU" id="pwm-zR-fM0"/>
+                        <outlet property="txtConfirmaPassword" destination="dg4-2l-YQt" id="LaF-0E-erB"/>
+                        <outlet property="txtEmail" destination="D4y-f7-Ht7" id="85b-tG-F0d"/>
+                        <outlet property="txtPassword" destination="ttf-uz-rzr" id="a9b-zb-xC9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4CM-pP-DaE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-452" y="466"/>
+        </scene>
+    </scenes>
+</document>

@@ -34,7 +34,7 @@ class TabBarViewController: YALFoldingTabBarController, YALTabBarDelegate {
     
     
     func tabBarDidSelectExtraLeftItem(_ tabBar: YALFoldingTabBar) {
-        print("Pesquisa")
+        self.performSegue(withIdentifier: "showSearch", sender: nil)
     }
     
     func  tabBarDidSelectExtraRightItem(_ tabBar: YALFoldingTabBar) {

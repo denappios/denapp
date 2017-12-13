@@ -14,6 +14,11 @@
 		B1252F861FDDCEE700226544 /* Designables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1252F851FDDCEE700226544 /* Designables.swift */; };
 		B1252F881FDDCF2C00226544 /* MsgAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1252F871FDDCF2C00226544 /* MsgAlert.swift */; };
 		B1252F8A1FDDDA7600226544 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1252F891FDDDA7600226544 /* TabBarViewController.swift */; };
+		B15C17F31FE17C1B007353F5 /* MapStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15C17F21FE17C1B007353F5 /* MapStoryboard.storyboard */; };
+		B15C17F51FE17C2D007353F5 /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15C17F41FE17C2D007353F5 /* SettingsStoryboard.storyboard */; };
+		B15C17F71FE17C42007353F5 /* DenStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15C17F61FE17C42007353F5 /* DenStoryboard.storyboard */; };
+		B15C17F91FE17C53007353F5 /* SearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15C17F81FE17C53007353F5 /* SearchStoryboard.storyboard */; };
+		B15C17FD1FE17C8A007353F5 /* SignUpStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15C17FC1FE17C8A007353F5 /* SignUpStoryboard.storyboard */; };
 		B172040C1FE069080095521C /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = B172040B1FE069080095521C /* DropDown.swift */; };
 		B1D099631FD74391009DFF74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D099621FD74391009DFF74 /* AppDelegate.swift */; };
 		B1D099651FD74391009DFF74 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D099641FD74391009DFF74 /* LoginViewController.swift */; };
@@ -35,6 +40,11 @@
 		B1252F851FDDCEE700226544 /* Designables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designables.swift; sourceTree = "<group>"; };
 		B1252F871FDDCF2C00226544 /* MsgAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgAlert.swift; sourceTree = "<group>"; };
 		B1252F891FDDDA7600226544 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		B15C17F21FE17C1B007353F5 /* MapStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapStoryboard.storyboard; sourceTree = "<group>"; };
+		B15C17F41FE17C2D007353F5 /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
+		B15C17F61FE17C42007353F5 /* DenStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DenStoryboard.storyboard; sourceTree = "<group>"; };
+		B15C17F81FE17C53007353F5 /* SearchStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchStoryboard.storyboard; sourceTree = "<group>"; };
+		B15C17FC1FE17C8A007353F5 /* SignUpStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpStoryboard.storyboard; sourceTree = "<group>"; };
 		B172040B1FE069080095521C /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		B1D0995F1FD74391009DFF74 /* DenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D099621FD74391009DFF74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +101,32 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		B141D30E1FE184980035B634 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B1D099661FD74391009DFF74 /* Main.storyboard */,
+				B15C17F21FE17C1B007353F5 /* MapStoryboard.storyboard */,
+				B15C17F41FE17C2D007353F5 /* SettingsStoryboard.storyboard */,
+				B15C17F61FE17C42007353F5 /* DenStoryboard.storyboard */,
+				B15C17F81FE17C53007353F5 /* SearchStoryboard.storyboard */,
+				B15C17FC1FE17C8A007353F5 /* SignUpStoryboard.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		B141D30F1FE184B50035B634 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1D099641FD74391009DFF74 /* LoginViewController.swift */,
+				B1D0997E1FD758E1009DFF74 /* FirstAccessViewController.swift */,
+				B1D099801FD75B08009DFF74 /* Constants.swift */,
+				B1252F891FDDDA7600226544 /* TabBarViewController.swift */,
+				F9D2CC021FE030CD00B0D9B0 /* MapViewController.swift */,
+				0CCEB54C1FDEFE920026E99F /* ConfigurationViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B1D099561FD74391009DFF74 = {
 			isa = PBXGroup;
 			children = (
@@ -112,15 +148,10 @@
 		B1D099611FD74391009DFF74 /* DenApp */ = {
 			isa = PBXGroup;
 			children = (
+				B141D30F1FE184B50035B634 /* Views */,
+				B141D30E1FE184980035B634 /* Storyboards */,
 				B1252F801FDDCDAA00226544 /* Utils */,
 				B1D099741FD743A4009DFF74 /* supportfiles */,
-				B1D099641FD74391009DFF74 /* LoginViewController.swift */,
-				B1D099661FD74391009DFF74 /* Main.storyboard */,
-				B1D0997E1FD758E1009DFF74 /* FirstAccessViewController.swift */,
-				B1D099801FD75B08009DFF74 /* Constants.swift */,
-				B1252F891FDDDA7600226544 /* TabBarViewController.swift */,
-				F9D2CC021FE030CD00B0D9B0 /* MapViewController.swift */,
-				0CCEB54C1FDEFE920026E99F /* ConfigurationViewController.swift */,
 			);
 			path = DenApp;
 			sourceTree = "<group>";
@@ -199,8 +230,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B15C17F51FE17C2D007353F5 /* SettingsStoryboard.storyboard in Resources */,
+				B15C17F91FE17C53007353F5 /* SearchStoryboard.storyboard in Resources */,
 				B1D0996D1FD74391009DFF74 /* LaunchScreen.storyboard in Resources */,
+				B15C17F71FE17C42007353F5 /* DenStoryboard.storyboard in Resources */,
+				B15C17FD1FE17C8A007353F5 /* SignUpStoryboard.storyboard in Resources */,
 				79BBC1EE1FDB4944008B676C /* GoogleService-Info.plist in Resources */,
+				B15C17F31FE17C1B007353F5 /* MapStoryboard.storyboard in Resources */,
 				B1D0996A1FD74391009DFF74 /* Assets.xcassets in Resources */,
 				B1D099681FD74391009DFF74 /* Main.storyboard in Resources */,
 			);
