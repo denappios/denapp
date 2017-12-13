@@ -14,6 +14,7 @@ import FirebaseDatabase
 class FirstAccessViewController: UIViewController {
     
     
+    @IBOutlet weak var btnBack: UIBarButtonItem!
     @IBOutlet weak var txtEmail: UITextField!
     
     @IBOutlet weak var txtPassword: UITextField!
@@ -22,6 +23,9 @@ class FirstAccessViewController: UIViewController {
     
     var ref: DatabaseReference!
     
+    @IBAction func btnBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         
         super.viewDidLoad()
