@@ -19,7 +19,8 @@ target 'DenApp' do
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
   pod 'Mapbox-iOS-SDK', '~> 3.7'
-
+  pod 'Fabric'
+  pod 'Crashlytics'
 end
 
 post_install do |installer|
