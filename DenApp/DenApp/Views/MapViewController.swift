@@ -14,7 +14,7 @@ struct Uberlandia {
     static let longitude = -48.291317
     //static let mapUrl = "mapbox://styles/pedroduraes/cjavchmeu14px2smlao9dujuw"
     static let mapUrlDefault = "mapbox://styles/mapbox/light-v9"
-    static let zoomLevel = 11.58
+    static let zoomLevel = 15.00
 }
 
 class MapViewController: UIViewController {
