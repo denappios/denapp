@@ -10,7 +10,8 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import FBSDKCoreKit
-
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -28,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        Fabric.with([Crashlytics.self])
+
         return true
     }
     
