@@ -19,6 +19,11 @@ target 'DenApp' do
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
   pod 'Mapbox-iOS-SDK', '~> 3.7'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
+  pod 'GooglePlacePicker'
+
+
   pod 'Fabric'
   pod 'Crashlytics'
 end

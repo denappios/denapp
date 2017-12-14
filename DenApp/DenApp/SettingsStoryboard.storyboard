@@ -31,7 +31,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1dT-eA-09x">
-                                <rect key="frame" x="16" y="75" width="243" height="41"/>
+                                <rect key="frame" x="16" y="75" width="337" height="41"/>
                                 <color key="backgroundColor" red="0.74084070489999998" green="0.74817576139999997" blue="0.74817576139999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="jbe-vL-254"/>
@@ -53,16 +53,16 @@
                                 </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lxa-53-aGs">
-                                <rect key="frame" x="22" y="272" width="249" height="31"/>
+                                <rect key="frame" x="22" y="272" width="343" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receber Notificação? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3I-Ck-VrS">
-                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="166.5" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R1b-Pv-YIe">
-                                        <rect key="frame" x="129.5" y="0.0" width="121.5" height="31"/>
+                                        <rect key="frame" x="176.5" y="0.0" width="168.5" height="31"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
@@ -72,7 +72,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDu-uY-nUA" customClass="DropDownMenu" customModule="DenApp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="173" width="243" height="40"/>
+                                <rect key="frame" x="16" y="173" width="337" height="40"/>
                                 <color key="backgroundColor" red="0.74084070489999998" green="0.74817576139999997" blue="0.74817576139999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -93,8 +93,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XU0-Yz-QJ2" customClass="Floaty" customModule="Floaty">
-                                <rect key="frame" x="16" y="607" width="11" height="50"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XU0-Yz-QJ2" customClass="Floaty" customModule="Floaty">
+                                <rect key="frame" x="16" y="607" width="50" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="gwP-nb-HW2"/>

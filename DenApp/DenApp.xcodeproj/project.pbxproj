@@ -14,6 +14,10 @@
 		B1252F861FDDCEE700226544 /* Designables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1252F851FDDCEE700226544 /* Designables.swift */; };
 		B1252F881FDDCF2C00226544 /* MsgAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1252F871FDDCF2C00226544 /* MsgAlert.swift */; };
 		B1252F8A1FDDDA7600226544 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1252F891FDDDA7600226544 /* TabBarViewController.swift */; };
+		B1503D091FE1EE4300CBE3F8 /* ShowImageSearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1503D081FE1EE4300CBE3F8 /* ShowImageSearchDetailViewController.swift */; };
+		B1503D0B1FE1EE6000CBE3F8 /* SearchDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1503D0A1FE1EE6000CBE3F8 /* SearchDetailCollectionViewCell.swift */; };
+		B1503D0D1FE1F28600CBE3F8 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1503D0C1FE1F28600CBE3F8 /* SearchDetailViewController.swift */; };
+		B1503D0F1FE1FF4800CBE3F8 /* TextViewEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1503D0E1FE1FF4800CBE3F8 /* TextViewEffects.swift */; };
 		B15C17F31FE17C1B007353F5 /* MapStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15C17F21FE17C1B007353F5 /* MapStoryboard.storyboard */; };
 		B15C17F51FE17C2D007353F5 /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15C17F41FE17C2D007353F5 /* SettingsStoryboard.storyboard */; };
 		B15C17F71FE17C42007353F5 /* DenStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15C17F61FE17C42007353F5 /* DenStoryboard.storyboard */; };
@@ -27,6 +31,9 @@
 		B1D0996D1FD74391009DFF74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D0996B1FD74391009DFF74 /* LaunchScreen.storyboard */; };
 		B1D0997F1FD758E1009DFF74 /* FirstAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D0997E1FD758E1009DFF74 /* FirstAccessViewController.swift */; };
 		B1D099811FD75B08009DFF74 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D099801FD75B08009DFF74 /* Constants.swift */; };
+		B1E9B6A31FE18A0700660FFF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E9B6A21FE18A0700660FFF /* SearchViewController.swift */; };
+		B1E9B6A51FE18A4500660FFF /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E9B6A41FE18A4500660FFF /* SearchViewCell.swift */; };
+		B1E9B6A81FE18F5900660FFF /* TypeDen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E9B6A71FE18F5900660FFF /* TypeDen.swift */; };
 		F9D2CC031FE030CD00B0D9B0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D2CC021FE030CD00B0D9B0 /* MapViewController.swift */; };
 		FBF8AA3EED247B6184F85A52 /* Pods_DenApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6754B4133A198594F45115 /* Pods_DenApp.framework */; };
 /* End PBXBuildFile section */
@@ -40,6 +47,10 @@
 		B1252F851FDDCEE700226544 /* Designables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designables.swift; sourceTree = "<group>"; };
 		B1252F871FDDCF2C00226544 /* MsgAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgAlert.swift; sourceTree = "<group>"; };
 		B1252F891FDDDA7600226544 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		B1503D081FE1EE4300CBE3F8 /* ShowImageSearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImageSearchDetailViewController.swift; sourceTree = "<group>"; };
+		B1503D0A1FE1EE6000CBE3F8 /* SearchDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		B1503D0C1FE1F28600CBE3F8 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
+		B1503D0E1FE1FF4800CBE3F8 /* TextViewEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewEffects.swift; sourceTree = "<group>"; };
 		B15C17F21FE17C1B007353F5 /* MapStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapStoryboard.storyboard; sourceTree = "<group>"; };
 		B15C17F41FE17C2D007353F5 /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		B15C17F61FE17C42007353F5 /* DenStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DenStoryboard.storyboard; sourceTree = "<group>"; };
@@ -55,6 +66,9 @@
 		B1D0996E1FD74391009DFF74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1D0997E1FD758E1009DFF74 /* FirstAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAccessViewController.swift; sourceTree = "<group>"; };
 		B1D099801FD75B08009DFF74 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B1E9B6A21FE18A0700660FFF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		B1E9B6A41FE18A4500660FFF /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
+		B1E9B6A71FE18F5900660FFF /* TypeDen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDen.swift; sourceTree = "<group>"; };
 		D4D81797FA122EDBF4D80CC3 /* Pods-DenApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DenApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DenApp/Pods-DenApp.release.xcconfig"; sourceTree = "<group>"; };
 		F9D2CC021FE030CD00B0D9B0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FF6754B4133A198594F45115 /* Pods_DenApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DenApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +111,8 @@
 				B1252F851FDDCEE700226544 /* Designables.swift */,
 				B1252F871FDDCF2C00226544 /* MsgAlert.swift */,
 				B172040B1FE069080095521C /* DropDown.swift */,
+				B1E9B6A71FE18F5900660FFF /* TypeDen.swift */,
+				B1503D0E1FE1FF4800CBE3F8 /* TextViewEffects.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -123,6 +139,11 @@
 				B1252F891FDDDA7600226544 /* TabBarViewController.swift */,
 				F9D2CC021FE030CD00B0D9B0 /* MapViewController.swift */,
 				0CCEB54C1FDEFE920026E99F /* ConfigurationViewController.swift */,
+				B1E9B6A21FE18A0700660FFF /* SearchViewController.swift */,
+				B1E9B6A41FE18A4500660FFF /* SearchViewCell.swift */,
+				B1503D081FE1EE4300CBE3F8 /* ShowImageSearchDetailViewController.swift */,
+				B1503D0A1FE1EE6000CBE3F8 /* SearchDetailCollectionViewCell.swift */,
+				B1503D0C1FE1F28600CBE3F8 /* SearchDetailViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -253,6 +274,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DenApp/Pods-DenApp-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -355,17 +379,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9D2CC031FE030CD00B0D9B0 /* MapViewController.swift in Sources */,
+				B1E9B6A81FE18F5900660FFF /* TypeDen.swift in Sources */,
+				B1503D0D1FE1F28600CBE3F8 /* SearchDetailViewController.swift in Sources */,
 				B1D099651FD74391009DFF74 /* LoginViewController.swift in Sources */,
 				B172040C1FE069080095521C /* DropDown.swift in Sources */,
 				B1252F821FDDCDF300226544 /* Modal.swift in Sources */,
+				B1503D0B1FE1EE6000CBE3F8 /* SearchDetailCollectionViewCell.swift in Sources */,
 				B1D099631FD74391009DFF74 /* AppDelegate.swift in Sources */,
+				B1E9B6A51FE18A4500660FFF /* SearchViewCell.swift in Sources */,
 				0CCEB54D1FDEFE920026E99F /* ConfigurationViewController.swift in Sources */,
 				B1D099811FD75B08009DFF74 /* Constants.swift in Sources */,
 				B1252F861FDDCEE700226544 /* Designables.swift in Sources */,
+				B1E9B6A31FE18A0700660FFF /* SearchViewController.swift in Sources */,
 				B1D0997F1FD758E1009DFF74 /* FirstAccessViewController.swift in Sources */,
 				B1252F881FDDCF2C00226544 /* MsgAlert.swift in Sources */,
 				B1252F8A1FDDDA7600226544 /* TabBarViewController.swift in Sources */,
+				B1503D091FE1EE4300CBE3F8 /* ShowImageSearchDetailViewController.swift in Sources */,
 				B1252F841FDDCE3900226544 /* Calendar.swift in Sources */,
+				B1503D0F1FE1FF4800CBE3F8 /* TextViewEffects.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +535,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = AX8AGE2WAC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -525,7 +556,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = AX8AGE2WAC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

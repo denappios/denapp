@@ -12,6 +12,8 @@ import GoogleSignIn
 import FBSDKCoreKit
 import Fabric
 import Crashlytics
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -31,6 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         Fabric.with([Crashlytics.self])
 
+        GMSServices.provideAPIKey("AIzaSyCyX9dwlJ5KKk-GijhwMcgwRpWjqppmO2Q")
+        GMSPlacesClient.provideAPIKey("AIzaSyDxKKaZs9z9BeD5d1eXnBEehnuQrNC2_nw")
+        
         return true
     }
     
