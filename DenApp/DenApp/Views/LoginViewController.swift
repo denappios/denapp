@@ -14,42 +14,44 @@ import FoldingTabBar
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate {
-
+class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
+    
+    @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var signInButton: GIDSignInButton!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.siginGoogle))
         
         GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().delegate = self
+        signInButton.addGestureRecognizer(tapGesture)
         signInButton.style = GIDSignInButtonStyle.iconOnly
-        // TODO(developer) Configure the sign-in button look/feel
-        // ...
-
-        
-        //if the user is already logged in
+        btnLogin.imageView?.contentMode = .scaleAspectFit
         if let accessToken = FBSDKAccessToken.current(){
             getFBUserData()
         }
         
+        if Authenticate.getAuthenticate() {
+            self.setupTabBarController()
+         }
+        
     }
-
+    
     //function is fetching the user data
     func getFBUserData(){
         if((FBSDKAccessToken.current()) != nil){
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
-                    //self.dict = result as! [String : AnyObject]
-                    //print(result!)
-                    //print(self.dict)
-                    print("erro")
+                    //MsgAlert().alert("Erro ao realizar login no Facebook", "DenApp", .error)
                 }
             })
         }
     }
+    
+    
     
     
     @IBAction func fbLoginAction(_ sender: Any) {
@@ -59,30 +61,32 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) -> Void in
             
             if error != nil {
-                NSLog("Process error")
+                MsgAlert().alert("Erro ao realizar login no Facebook", "DenApp", .error)
             }
             else if (result?.isCancelled)! {
-                NSLog("Cancelled")
+                MsgAlert().alert("Login no Facebook Cancelado", "DenApp", .error)
             }
             else {
-                NSLog("Logged in")
-                self.getFBUserData()
+                
+                let fbloginresult : FBSDKLoginManagerLoginResult = result!
+                let credential = FacebookAuthProvider.credential(withAccessToken: fbloginresult.token.tokenString)
+                
+                Auth.auth().signIn(with: credential) { (user, error) in
+                    if let error = error {
+                      MsgAlert().alert("Erro ao realizar login no Facebook", "DenApp", .error)
+                    } else {
+                        self.getFBUserData()
+                        Authenticate.setAuthenticate(user: (Auth.auth().currentUser?.uid)!)
+                        self.setupTabBarController()
+                    }
+                }
             }
         }
     }
     
-    @IBAction func btnLogin(_ sender: Any) {
-       
-        if "" == txtEmail.text || "" == txtPassword.text {
-            MsgAlert().alert("Email ou Password incorretos.", "DenApp", .error)
- 
-        }
-         else {
-           //setupTabBarController()
-        }
-     }
     
- 
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -103,11 +107,11 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         let item2 = YALTabBarItem(itemImage: #imageLiteral(resourceName: "iconAccident2"), leftItemImage: UIImage(named: "search_icon"), rightItemImage: UIImage(named: "settings_icon"))
         let item3 = YALTabBarItem(itemImage: #imageLiteral(resourceName: "iconWildAnimals"), leftItemImage: UIImage(named: "search_icon"), rightItemImage: UIImage(named: "settings_icon"))
         
-         let item4 = YALTabBarItem(itemImage: #imageLiteral(resourceName: "iconCrime2"), leftItemImage: UIImage(named: "search_icon"), rightItemImage: UIImage(named: "settings_icon"))
+        let item4 = YALTabBarItem(itemImage: #imageLiteral(resourceName: "iconCrime2"), leftItemImage: UIImage(named: "search_icon"), rightItemImage: UIImage(named: "settings_icon"))
         
         tabBarController.leftBarItems = [item1, item2]
         
-          tabBarController.rightBarItems = [item3, item4]
+        tabBarController.rightBarItems = [item3, item4]
         
         tabBarController.centerButtonImage = UIImage(named:"plus_icon")!
         tabBarController.selectedIndex = 0
@@ -133,24 +137,64 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         
     }
     
+    @objc func siginGoogle() {
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
+    
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        // ...
+        if let error = error {
+            // ...
+            MsgAlert().alert("Erro ao realizar login no Google", "DenApp", .error)
+            
+        } else {
+            
+            guard let authentication = user.authentication else { return }
+            let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                           accessToken: authentication.accessToken)
+            
+            Auth.auth().signIn(with: credential) { (user, error) in
+                if let error = error {
+                    // ...
+                    MsgAlert().alert("Erro ao realizar login no Google", "DenApp", .error)
+                } else {
+                    Authenticate.setAuthenticate(user: (Auth.auth().currentUser?.uid)!)
+                    self.setupTabBarController()
+                }
+                // User is signed in
+                // ...
+            }
+        }
+    }
+    
+    
+    
     
     
     @IBAction func loginEmailPass(_ sender: Any) {
-        setupTabBarController()
-        //Auth.auth().signIn(withEmail: self.txtEmail.text!, password: self.txtPassword.text!) { (user, error) in
-            
-          //  print("User: \(user)")
-          //  print("Error: \(error)")
-            
-           // if error != nil {
-           //     MsgAlert().alert("Erro ao realizar login", "DenApp", .error)
-          //  } else {
-           //     MsgAlert().alert("Login realizado com sucesso", "DenApp", .success)
-           // }
-
-        //}
+        
+        if "" == txtEmail.text || "" == txtPassword.text {
+            MsgAlert().alert("Email ou Password incorretos.", "DenApp", .error)
+        }
+        else {
+            Auth.auth().signIn(withEmail: self.txtEmail.text!, password: self.txtPassword.text!) { (user, error) in
+                
+                print("User: \(user)")
+                print("Error: \(error)")
+                
+                if error != nil {
+                    MsgAlert().alert("Erro ao realizar login", "DenApp", .error)
+                } else {
+                    Authenticate.setAuthenticate(user: (Auth.auth().currentUser?.uid)!)
+                    self.setupTabBarController()
+                }
+                
+            }
+        }
     }
     
-
+    
 }
 
