@@ -8,6 +8,7 @@
 
 import UIKit
 import Floaty
+import FirebaseDatabase
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -16,12 +17,43 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var dens: [Den] = []
     var selected: Den?
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dens = Den.mockDens
+    
+        listMarkersByLoggedUser()
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.backPage))
         btnBack.addGestureRecognizer(tapGesture)
+    }
+    
+    func listMarkersByLoggedUser() {
+        let uuid = Repository.getLoggedUserId()
+        self.dens.removeAll()
+        Repository.ref.child("users").child(uuid!).child("markers").observe(DataEventType.value, with: { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                    for snap in snapshots {
+                        
+                        let pin = snap.value as? [String:String]
+                        
+                        let title = pin!["title"]
+                        let desc = pin!["description"]
+                        let dt = pin!["creationDate"]
+                        let lat = Double((pin!["lat"] as! NSString).doubleValue)
+                        let lon = Double((pin!["lon"] as! NSString).doubleValue)
+                        let type = Int(pin!["type"]!)
+                        
+                        // TODO: Utilizar imagens reais
+                        let d = Den(title!, type!, lat, lon, dt!, desc!, [#imageLiteral(resourceName: "iconCrime"),#imageLiteral(resourceName: "iconCamera"),#imageLiteral(resourceName: "iconFire")])
+                        self.dens.append(d)
+                        
+                    }
+                }
+            }
+            self.tableView.reloadData()
+        })
     }
     
     override func didReceiveMemoryWarning() {
