@@ -16,7 +16,7 @@ class Repository {
     // Criando referência para o banco de dados
     static var ref: DatabaseReference = Database.database().reference()
     
-    static let USER_ID = "USER_ID"
+  
     
     
     static func saveMarker(marker: GMSMarker) {
