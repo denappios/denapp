@@ -17,7 +17,7 @@ class Constants {
     static let rangeRadius = "RangeRadius"
     static let favoriteType = "FavoriteType"
     static let getNotification = "GetNotification"
-      static let USER_ID = "USER_ID"
+    static let USER_ID = "USER_ID"
     
 }
 
