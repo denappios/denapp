@@ -20,6 +20,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         dens = Den.mockDens
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.backPage))
+        btnBack.addGestureRecognizer(tapGesture)
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,6 +80,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let page: SearchDetailViewController = segue.destination as! SearchDetailViewController
             page.den = (sender as! Den)
         }
+    }
+    
+    @objc func backPage() {
+        dismiss(animated: true, completion: nil)
     }
     
     
