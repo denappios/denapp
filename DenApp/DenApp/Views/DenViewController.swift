@@ -136,11 +136,12 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
     }
     
     @objc func saveDenunciation(){
-        print("Salvando Denunciation...")
-        
+       
         createDenuciation()
-        print(denunciation)
-        
+        if(validateDununciation()){
+             print("Salvando Denunciation...")
+             print(denunciation)
+        }
     }
     
     func createDenuciation () {
@@ -148,6 +149,22 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
         denunciation.DenunciationDescription = textDescription.text
         denunciation.date = labelDate.text
         denunciation.listImagens = listImagens
+    }
+    
+    func validateDununciation() -> Bool {
+        if(denunciation.title == nil ||
+            denunciation.DenunciationDescription == nil ||
+            denunciation.date == nil ||
+            denunciation.date == "" ){
+            
+            let validateAlert = UIAlertController(title: "Validação", message: "Campo Obrigatório não foi preenchido!", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            validateAlert.addAction(okAction)
+            self.present(validateAlert, animated: true, completion:nil)
+            return false
+            
+        }
+        return true
     }
     
     func getCalendar() -> FSCalendar {
