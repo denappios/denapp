@@ -16,13 +16,12 @@ class MapConfig {
     
     static let zoomLevel = 11.58
     static let actualPosition = GMSMarker()
+    static let rangeRadius = [500,1000,1500,2000]
     
     
 }
 
 class MapViewController: UIViewController , GMSMapViewDelegate {
-    
-    
     var placesClient: GMSPlacesClient!
     var mapView: GMSMapView?
     var positions = [GMSMarker]()
@@ -30,11 +29,16 @@ class MapViewController: UIViewController , GMSMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        maxDistanceToShow = UserDefaults.standard.integer(forKey: Constants.favoriteType)
         placesClient = GMSPlacesClient.shared()
         loadView()
-        loadLocal()
         mapView?.delegate = self
+        
+    }
+    //no load e quando volta  executa este metodo
+    override func viewWillAppear(_ animated: Bool) {
+        maxDistanceToShow = UserDefaults.standard.integer(forKey: Constants.rangeRadius) //index referente ao array rangeRadius
+        mapView?.clear()//limpar todos os markers
+        loadLocal()
         
     }
     
@@ -49,18 +53,7 @@ class MapViewController: UIViewController , GMSMapViewDelegate {
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         mapView?.isMyLocationEnabled = true
         view = mapView
-        
-        for i in 1...4 {
-            let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: MapConfig.latitute + Double(i/3), longitude: MapConfig.longitude )
-            marker.title = "Assalto Viado"
-            marker.icon = UIImage(named : "iconAccident")
-            marker.snippet = "Uberlândia"
-            marker.isFlat = true
-            marker.map  = mapView
-            positions.append(marker)
-            
-        }
+
     }
     
     func calcuDistance(_ marker : GMSMarker) -> CLLocationDistance {
@@ -77,6 +70,7 @@ class MapViewController: UIViewController , GMSMapViewDelegate {
         placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
             if let error = error {
                 print("Pick Place error: \(error.localizedDescription)")
+                self.loadMarkers()
                 return
             }
             if let placeLikelihoodList = placeLikelihoodList {
@@ -88,11 +82,12 @@ class MapViewController: UIViewController , GMSMapViewDelegate {
                     MapConfig.actualPosition.title = place.name
                     //marker.icon
                     MapConfig.actualPosition.icon = GMSMarker.markerImage(with: .red)
-                    MapConfig.actualPosition.snippet = "Uberlândia"
+                    MapConfig.actualPosition.snippet = "Nova denuncia aqui"
                     
                     MapConfig.actualPosition.map = self.mapView
                     
-                    self.mapView?.camera = GMSCameraPosition.camera(withLatitude: MapConfig.actualPosition.position.latitude, longitude: MapConfig.actualPosition.position.longitude, zoom: Float(MapConfig.zoomLevel))
+                    //self.mapView?.camera = GMSCameraPosition.camera(withLatitude: MapConfig.actualPosition.position.latitude, longitude: MapConfig.actualPosition.position.longitude, zoom: Float(MapConfig.zoomLevel))
+                    self.loadMarkers()
                     
                 }
             }
@@ -103,11 +98,23 @@ class MapViewController: UIViewController , GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         //self.actualPosition.map = nil
-        //            MapConfig.actualPosition.position = coordinate
-        //            MapConfig.actualPosition.title = "Nova denuncia..."
-        //            MapConfig.actualPosition.snippet = "Aqui"
-        //            MapConfig.actualPosition.map = self.mapView
-        createMarker(coordinate)
+        MapConfig.actualPosition.position = coordinate
+        MapConfig.actualPosition.title = "Nova denuncia aqui"
+        MapConfig.actualPosition.snippet = "Aqui"
+        MapConfig.actualPosition.map = self.mapView
+        createMarker(coordinate)//para testes somente
+        
+    }
+    func loadMarkers()  {
+
+            for item in self.positions {
+                let distance : Double = calcuDistance(item)
+                print("voce esta a \(distance) metros, e so exibe a no maximo \(MapConfig.rangeRadius[maxDistanceToShow])")
+                if Double(MapConfig.rangeRadius[maxDistanceToShow]) > distance  {
+                   item.map = mapView
+                }
+                
+            }
         
     }
     func createMarker(_ coordinate: CLLocationCoordinate2D) {
@@ -117,17 +124,12 @@ class MapViewController: UIViewController , GMSMapViewDelegate {
         marker.icon = UIImage(named : "iconAccident")
         marker.snippet = "roda dura do krl"
         marker.isFlat = true
+        marker.map = mapView
         positions.append(marker)
         
         print("latitute : \(coordinate.latitude) longitude:\(coordinate.longitude)")
         print("")
-        let distance : Double = calcuDistance(marker)
-        if maxDistanceToShow == 0 || distance > Double(maxDistanceToShow)   {
-            marker.map  = mapView
-        }
-        else {
-            print("voce esta a \(distance) metros, e so exibe a no maximo \(maxDistanceToShow)")
-        }
+        
         
         Repository.saveMarker(marker: marker)
         
