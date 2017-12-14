@@ -18,7 +18,7 @@ class Denunciation {
     var date : String?
     var latitude: Double?
     var longitude: Double?
-    var DenunciationDescription : String?
+    var desc : String?
     var listImagens : [UIImage] = [UIImage]()
     var type : TypeDenunciation?
     let position = GMSMarker()
@@ -30,7 +30,7 @@ extension GMSMarker {
     func toDenuciation() -> Denunciation {
         let denunciation = Denunciation()
         denunciation.title = self.title
-        denunciation.DenunciationDescription = self.description
+        denunciation.desc = self.description
         denunciation.date = ""
         
         return denunciation

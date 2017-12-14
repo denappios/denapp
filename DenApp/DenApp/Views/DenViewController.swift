@@ -151,7 +151,7 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
     
     func createDenuciation () {
         denunciation.title = textTitle.text
-        denunciation.DenunciationDescription = textDescription.text
+        denunciation.desc = textDescription.text
         denunciation.date = labelDate.text
         denunciation.listImagens = listImagens
         denunciation.type = TypeDenunciation.getValues(id: typeDenuciation)
@@ -161,7 +161,7 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
     
     func validateDununciation() -> Bool {
         if(denunciation.title == nil ||
-            denunciation.DenunciationDescription == nil ||
+            denunciation.desc == nil ||
             denunciation.date == nil ||
             denunciation.date == "" ){
             
