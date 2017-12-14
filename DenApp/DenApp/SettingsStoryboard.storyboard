@@ -93,13 +93,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-<<<<<<< HEAD
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XU0-Yz-QJ2" customClass="Floaty" customModule="Floaty">
-                                <rect key="frame" x="16" y="607" width="105" height="50"/>
-=======
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XU0-Yz-QJ2" customClass="Floaty" customModule="Floaty">
                                 <rect key="frame" x="16" y="607" width="50" height="50"/>
->>>>>>> 25a29791dc79799c8f8eaf62d52d94d97901f30f
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="gwP-nb-HW2"/>
