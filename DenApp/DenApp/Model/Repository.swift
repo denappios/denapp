@@ -27,7 +27,7 @@ class Repository {
         
         let newMarkerId = autoIdMarkersRef.key
         
-        let userId = UserDefaults.standard.string(forKey: USER_ID) ?? "d-A-L-1-L-4"
+        let userId = UserDefaults.standard.string(forKey: Constants.USER_ID) ?? "d-A-L-1-L-4"
         
     self.ref.child("users").child(userId).child("markers").child(newMarkerId).setValue(["type" : "marker type", "lat": String(marker.position.latitude), "lon": String(marker.position.longitude), "userId" : userId ?? "", "creationDate": String(describing: Date()), "title": marker.title ?? "", "description": marker.snippet])
         
@@ -40,7 +40,7 @@ class Repository {
         
         self.ref.child("users").child(uid).setValue(["email" : email, "markers": []])
         
-        UserDefaults.standard.setValue(uid, forKeyPath: USER_ID)
+        UserDefaults.standard.setValue(uid, forKeyPath: Constants.USER_ID)
         
     }
     
