@@ -15,4 +15,19 @@ enum TypeDenunciation {
     case CRIME
     case WILD_ANIMALS
     
+    static func getValues(id: Int) -> TypeDenunciation {
+        switch id {
+        case 1:
+            return TypeDenunciation.FIRE
+        case 2:
+            return TypeDenunciation.ACCIDENT
+        case 3:
+            return TypeDenunciation.CRIME
+        case 4:
+            return TypeDenunciation.WILD_ANIMALS
+        default:
+            return TypeDenunciation.FIRE
+        }
+    }
+    
 }

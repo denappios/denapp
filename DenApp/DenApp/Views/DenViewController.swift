@@ -12,7 +12,7 @@ import FSCalendar
 
 class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePickerControllerDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, FSCalendarDataSource, FSCalendarDelegate {
     
-    
+    var typeDenuciation: Int = 0
     @IBOutlet weak var collectioView: UICollectionView!
     
     @IBOutlet weak var textTitle: UITextField!
@@ -141,18 +141,36 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
     }
     
     @objc func saveDenunciation(){
-        print("Salvando Denunciation...")
-        
+       
         createDenuciation()
-        print(denunciation)
-        
+        if(validateDununciation()){
+             print("Salvando Denunciation...")
+             print(denunciation)
+        }
     }
     
     func createDenuciation () {
         denunciation.title = textTitle.text
-        denunciation.DenunciationDescription = textDescription.text
+        denunciation.desc = textDescription.text
         denunciation.date = labelDate.text
         denunciation.listImagens = listImagens
+        denunciation.type = TypeDenunciation.getValues(id: typeDenuciation)
+        denunciation.longitude = MapConfig.longitude
+        denunciation.latitude  = MapConfig.latitute
+    }
+    
+    func validateDununciation() -> Bool {
+        if(denunciation.title == nil ||
+            denunciation.desc == nil ||
+            denunciation.date == nil ||
+            denunciation.date == "" ){
+            
+            MsgAlert().alert("Campo Obrigatório não foi preenchido!", "Validação", .warning)
+            
+            return false
+            
+        }
+        return true
     }
     
     func getCalendar() -> FSCalendar {

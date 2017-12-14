@@ -28,10 +28,10 @@ class TabBarViewController: YALFoldingTabBarController, YALTabBarDelegate {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("testando segue")
-        
-        if segue.identifier == "showSearch" {
-            print("testando segue para showSearch")
+        if segue.identifier == "addDen" {
+            let typeDenunciation = (sender as! Int) + 1
+            let page = segue.destination as! DenViewController
+            page.typeDenuciation = typeDenunciation
         }
     }
     
@@ -44,9 +44,6 @@ class TabBarViewController: YALFoldingTabBarController, YALTabBarDelegate {
     }
     
     func tabBarDidSelectExtraLeftItem(_ tabBar: YALFoldingTabBar) {
-        
-        //asdafsafsfas
-        
         self.performSegue(withIdentifier: "showSearch", sender: nil)
     }
     
@@ -55,8 +52,7 @@ class TabBarViewController: YALFoldingTabBarController, YALTabBarDelegate {
     }
     
     func tabBar(_ tabBar: YALFoldingTabBar, didSelectItemAt index: UInt) {
-        
-        self.performSegue(withIdentifier: "addDen", sender: nil)
+       self.performSegue(withIdentifier: "addDen", sender: index)
     }
     
     func tabBar(_ tabBar: YALFoldingTabBar, shouldSelectItemAt index: UInt) -> Bool {
