@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -173,7 +174,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Md-rg-rFO">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Md-rg-rFO">
                                                     <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -237,14 +238,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ohW-b9-GiO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ohW-b9-GiO">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ohW-b9-GiO" secondAttribute="height" multiplier="1:1" constant="-292" id="zeX-lQ-7DY"/>
+                                </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fe4-eK-oYg" customClass="Floaty" customModule="Floaty">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fe4-eK-oYg" customClass="Floaty" customModule="Floaty">
                                 <rect key="frame" x="16" y="597" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="R3f-AM-WhG"/>
+                                    <constraint firstAttribute="height" constant="50" id="vJP-h1-SzQ"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="buttonImage" value="back"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
@@ -263,7 +269,16 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ohW-b9-GiO" firstAttribute="leading" secondItem="6ys-Gn-sDm" secondAttribute="leading" id="3Mm-7a-Xmh"/>
+                            <constraint firstItem="Fe4-eK-oYg" firstAttribute="leading" secondItem="6ys-Gn-sDm" secondAttribute="leading" constant="16" id="DAD-sU-ZV2"/>
+                            <constraint firstItem="6ys-Gn-sDm" firstAttribute="trailing" secondItem="Fe4-eK-oYg" secondAttribute="trailing" constant="309" id="KtX-aP-1GL"/>
+                            <constraint firstItem="ohW-b9-GiO" firstAttribute="top" secondItem="iCo-16-m8E" secondAttribute="top" id="gPd-m0-Q2S"/>
+                            <constraint firstItem="Fe4-eK-oYg" firstAttribute="top" secondItem="6ys-Gn-sDm" secondAttribute="top" constant="577" id="mgG-vk-xKK"/>
+                            <constraint firstItem="ohW-b9-GiO" firstAttribute="bottom" secondItem="6ys-Gn-sDm" secondAttribute="bottom" id="sTV-Qg-PXB"/>
+                            <constraint firstItem="6ys-Gn-sDm" firstAttribute="bottom" secondItem="Fe4-eK-oYg" secondAttribute="bottom" constant="20" id="u7r-O9-dW7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6ys-Gn-sDm"/>
                     </view>
                     <connections>
@@ -273,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bnT-i3-Jcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2217" y="322"/>
+            <point key="canvasLocation" x="2216.8000000000002" y="321.58920539730138"/>
         </scene>
     </scenes>
     <resources>

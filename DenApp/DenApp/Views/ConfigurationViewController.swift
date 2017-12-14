@@ -10,6 +10,9 @@ import UIKit
 import Floaty
 
 
+
+
+
 class ConfigurationViewController: UIViewController, DropDownMenuDelegate {
     
     @IBOutlet weak var dropDenuncia: DropDownMenu!
