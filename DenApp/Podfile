@@ -24,6 +24,7 @@ target 'DenApp' do
   pod 'GooglePlacePicker'
 
 
+
   pod 'Fabric'
   pod 'Crashlytics'
 end
