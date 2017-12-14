@@ -91,5 +91,8 @@
 	</array>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>Show your location on the map</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Show your camera</string>
+    
 </dict>
 </plist>
