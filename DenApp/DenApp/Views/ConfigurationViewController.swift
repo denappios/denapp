@@ -10,6 +10,22 @@ import UIKit
 import Floaty
 
 
+class Authenticate {
+   static let key: String = "userAuth"
+    static func setAuthenticate(user: String) {
+       UserDefaults.standard.set(user, forKey: self.key)
+   }
+    
+    static func getAuthenticate() -> Bool {
+        guard UserDefaults.standard.object(forKey: self.key) != nil else {
+            return false
+        }
+        return true
+    }
+    
+}
+
+
 class ConfigurationViewController: UIViewController, DropDownMenuDelegate {
     
     @IBOutlet weak var dropDenuncia: DropDownMenu!
