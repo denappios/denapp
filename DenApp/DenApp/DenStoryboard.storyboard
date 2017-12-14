@@ -69,8 +69,9 @@
                                     <outlet property="delegate" destination="XhB-k6-MVL" id="QkI-an-Cds"/>
                                 </connections>
                             </collectionView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L5r-Qp-aVS" userLabel="textDescription" customClass="HoshiTextView" customModule="DenApp" customModuleProvider="target">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L5r-Qp-aVS" userLabel="textDescription" customClass="HoshiTextView" customModule="DenApp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="355" width="343" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -91,37 +92,42 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adicione até 3 Fotos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rld-sy-gMO">
-                                <rect key="frame" x="16" y="20" width="343" height="21"/>
+                                <rect key="frame" x="16" y="28" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eI9-NA-CCC" userLabel="btnBack" customClass="Floaty" customModule="Floaty">
+                            <view contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eI9-NA-CCC" userLabel="btnBack" customClass="Floaty" customModule="Floaty">
                                 <rect key="frame" x="16" y="595" width="50" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="BrL-DK-dOJ"/>
-                                    <constraint firstAttribute="height" constant="50" id="bkx-5B-LVi"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="buttonImage" value="back"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
                                         <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasShadow" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="imageButton" value="back"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="buttonImage" value="back"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="respondsToKeyboard" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Az-hn-ja6" userLabel="btnSave" customClass="Floaty" customModule="Floaty">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Az-hn-ja6" userLabel="btnSave" customClass="Floaty" customModule="Floaty">
                                 <rect key="frame" x="302" y="595" width="50" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="F72-d1-ZA0"/>
-                                    <constraint firstAttribute="width" constant="50" id="QU2-fL-gLz"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
                                         <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="plusColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="respondsToKeyboard" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Titulo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JFS-10-8oh" userLabel="textTitle" customClass="HoshiTextField" customModule="TextFieldEffects">
@@ -154,7 +160,7 @@
                                     <action selector="showCalendar:" destination="XhB-k6-MVL" eventType="touchUpInside" id="eGt-eH-2gl"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNf-8C-dit">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Selecione uma Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNf-8C-dit">
                                 <rect key="frame" x="54" y="274" width="157" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -163,16 +169,6 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="eI9-NA-CCC" firstAttribute="leading" secondItem="doO-VX-4Th" secondAttribute="leading" constant="16" id="0P0-ng-RsY"/>
-                            <constraint firstItem="doO-VX-4Th" firstAttribute="trailing" secondItem="9Az-hn-ja6" secondAttribute="trailing" constant="23" id="7l9-vz-Bvm"/>
-                            <constraint firstItem="eI9-NA-CCC" firstAttribute="top" secondItem="L5r-Qp-aVS" secondAttribute="bottom" constant="115" id="YSc-X1-TGf"/>
-                            <constraint firstItem="9Az-hn-ja6" firstAttribute="leading" secondItem="eI9-NA-CCC" secondAttribute="trailing" constant="236" id="kkr-Dj-UbK"/>
-                            <constraint firstItem="9Az-hn-ja6" firstAttribute="leading" secondItem="eI9-NA-CCC" secondAttribute="trailing" constant="236" id="krG-aD-eKG"/>
-                            <constraint firstItem="9Az-hn-ja6" firstAttribute="top" secondItem="L5r-Qp-aVS" secondAttribute="bottom" constant="115" id="mpx-VB-JKz"/>
-                            <constraint firstItem="doO-VX-4Th" firstAttribute="bottom" secondItem="eI9-NA-CCC" secondAttribute="bottom" constant="22" id="mve-43-lZp"/>
-                            <constraint firstItem="doO-VX-4Th" firstAttribute="bottom" secondItem="9Az-hn-ja6" secondAttribute="bottom" constant="22" id="ohu-hw-Q8s"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="doO-VX-4Th"/>
                     </view>
                     <connections>
