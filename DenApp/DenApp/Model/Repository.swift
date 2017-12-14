@@ -29,10 +29,11 @@ class Repository {
         
         let userId = UserDefaults.standard.string(forKey: USER_ID) ?? "d-A-L-1-L-4"
         
-    self.ref.child("users").child(userId).child("markers").child(newMarkerId).setValue(["type" : "marker type", "lat": String(marker.position.latitude), "lon": String(marker.position.longitude), "userId" : userId ?? "", "creationDate": String(describing: Date()), "title": marker.title ?? "", "description": marker.snippet])
+        let randType = String(arc4random_uniform(3) + 1)
+    self.ref.child("users").child(userId).child("markers").child(newMarkerId).setValue(["type" : randType, "lat": String(marker.position.latitude), "lon": String(marker.position.longitude), "userId" : userId ?? "", "creationDate": String(describing: Date()), "title": marker.title ?? "", "description": marker.snippet])
         
         
-        self.ref.child("markers").child(newMarkerId).setValue(["type" : "marker type", "lat": String(marker.position.latitude), "lon": String(marker.position.longitude), "userId" : userId ?? "", "creationDate": String(describing: Date()), "title": marker.title ?? "", "description": marker.snippet])
+        self.ref.child("markers").child(newMarkerId).setValue(["type" : randType, "lat": String(marker.position.latitude), "lon": String(marker.position.longitude), "userId" : userId ?? "", "creationDate": String(describing: Date()), "title": marker.title ?? "", "description": marker.snippet])
         
     }
     
