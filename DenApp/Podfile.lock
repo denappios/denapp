@@ -5,6 +5,9 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - Crashlytics (3.9.3):
+    - Fabric (~> 1.7.2)
+  - Fabric (1.7.2)
   - FBSDKCoreKit (4.29.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.29.0):
@@ -39,16 +42,6 @@ PODS:
   - Floaty (4.0.0)
   - FoldingTabBar (1.1.2)
   - FSCalendar (2.7.9)
-  - GoogleMaps (2.5.0):
-    - GoogleMaps/Maps (= 2.5.0)
-  - GoogleMaps/Base (2.5.0)
-  - GoogleMaps/Maps (2.5.0):
-    - GoogleMaps/Base
-  - GooglePlacePicker (2.5.0):
-    - GoogleMaps (= 2.5.0)
-    - GooglePlaces (= 2.5.0)
-  - GooglePlaces (2.5.0):
-    - GoogleMaps/Base (= 2.5.0)
   - GoogleSignIn (4.1.1):
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GoogleToolboxForMac/NSString+URLArguments (~> 2.1)
@@ -84,6 +77,8 @@ PODS:
   - TextFieldEffects (1.4.0)
 
 DEPENDENCIES:
+  - Crashlytics
+  - Fabric
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
@@ -93,9 +88,6 @@ DEPENDENCIES:
   - Floaty (~> 4.0.0)
   - FoldingTabBar (~> 1.1.2)
   - FSCalendar
-  - GoogleMaps
-  - GooglePlacePicker
-  - GooglePlaces
   - GoogleSignIn
   - IQKeyboardManagerSwift
   - KeychainSwift
@@ -105,6 +97,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
+  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
   FBSDKCoreKit: 6f139173dc63a1deaff4430a55f2fe5bb222d2af
   FBSDKLoginKit: 56a057ca6822535ea0faa25f57a7c41edb697fd4
   FBSDKShareKit: 18a2cd118aef11dd657fe7e8b64bae5c719088b2
@@ -117,9 +111,6 @@ SPEC CHECKSUMS:
   Floaty: 4f88811bbf08521807f42355db6a9c0db85d5d78
   FoldingTabBar: 3b1e54c0dfa6103e93e8d95d1e75a22c6d8e2843
   FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
-  GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
-  GooglePlacePicker: 1573e644ab54564d95c2643edc0f29091609e966
-  GooglePlaces: dd70d9d71ea1c7944846afe67de3712c99b30a77
   GoogleSignIn: 3fdaa34a2ba04dbd7a25d7db39aecb0da98d5bdc
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
@@ -132,6 +123,6 @@ SPEC CHECKSUMS:
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
 
-PODFILE CHECKSUM: a8d3d4ad9f50f6dd68a344e65a42d2a2c22e69a6
+PODFILE CHECKSUM: 54ba7f6da729b6c025ce9582efc01f32e9419889
 
 COCOAPODS: 1.3.1

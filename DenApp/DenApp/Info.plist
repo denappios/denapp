@@ -37,6 +37,20 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>ae82d5130c1646e1653a702861cd130f832b0e66</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
 	<key>FacebookAppID</key>
 	<string>2017552265195630</string>
 	<key>FacebookDisplayName</key>
@@ -50,6 +64,8 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MGLMapboxAccessToken</key>
+	<string>pk.eyJ1IjoicGVkcm9kdXJhZXMiLCJhIjoiY2phdTdncmlhNTczcjMzcGxoM2V6cHBvcSJ9.oZxoJcu75edFRARtw8sEjg</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -64,8 +80,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>MGLMapboxAccessToken</key>
-	<string>pk.eyJ1IjoicGVkcm9kdXJhZXMiLCJhIjoiY2phdTdncmlhNTczcjMzcGxoM2V6cHBvcSJ9.oZxoJcu75edFRARtw8sEjg</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
