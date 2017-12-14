@@ -78,7 +78,7 @@
 		B1D0996C1FD74391009DFF74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1D0996E1FD74391009DFF74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1D0997E1FD758E1009DFF74 /* FirstAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAccessViewController.swift; sourceTree = "<group>"; };
-		B1D099801FD75B08009DFF74 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B1D099801FD75B08009DFF74 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Views/Constants.swift; sourceTree = "<group>"; };
 		B1E9B6A21FE18A0700660FFF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B1E9B6A41FE18A4500660FFF /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
 		B1E9B6A71FE18F5900660FFF /* TypeDen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDen.swift; sourceTree = "<group>"; };
@@ -140,6 +140,7 @@
 		B1252F801FDDCDAA00226544 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B1D099801FD75B08009DFF74 /* Constants.swift */,
 				B1252F811FDDCDF300226544 /* Modal.swift */,
 				B1252F831FDDCE3900226544 /* Calendar.swift */,
 				B1252F851FDDCEE700226544 /* Designables.swift */,
@@ -171,7 +172,6 @@
 				29E1BDC91FE305B7005F5FD6 /* DenViewController.swift */,
 				B1D099641FD74391009DFF74 /* LoginViewController.swift */,
 				B1D0997E1FD758E1009DFF74 /* FirstAccessViewController.swift */,
-				B1D099801FD75B08009DFF74 /* Constants.swift */,
 				B1252F891FDDDA7600226544 /* TabBarViewController.swift */,
 				F9D2CC021FE030CD00B0D9B0 /* MapViewController.swift */,
 				0CCEB54C1FDEFE920026E99F /* ConfigurationViewController.swift */,
