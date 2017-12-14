@@ -28,7 +28,11 @@ class TabBarViewController: YALFoldingTabBarController, YALTabBarDelegate {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("testando segue")
+        if segue.identifier == "addDen" {
+            let typeDenunciation = (sender as! Int) + 1
+            let page = segue.destination as! DenViewController
+            page.typeDenuciation = typeDenunciation
+        }
     }
     
     func tabBarDidExpand(_ tabBar: YALFoldingTabBar) {
@@ -48,8 +52,7 @@ class TabBarViewController: YALFoldingTabBarController, YALTabBarDelegate {
     }
     
     func tabBar(_ tabBar: YALFoldingTabBar, didSelectItemAt index: UInt) {
-        
-        self.performSegue(withIdentifier: "addDen", sender: nil)
+       self.performSegue(withIdentifier: "addDen", sender: index)
     }
     
     func tabBar(_ tabBar: YALFoldingTabBar, shouldSelectItemAt index: UInt) -> Bool {

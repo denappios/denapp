@@ -12,7 +12,7 @@ import FSCalendar
 
 class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePickerControllerDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, FSCalendarDataSource, FSCalendarDelegate {
     
-    
+    var typeDenuciation: Int = 0
     @IBOutlet weak var collectioView: UICollectionView!
     
     @IBOutlet weak var textTitle: UITextField!
@@ -154,6 +154,9 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
         denunciation.DenunciationDescription = textDescription.text
         denunciation.date = labelDate.text
         denunciation.listImagens = listImagens
+        denunciation.type = TypeDenunciation.getValues(id: typeDenuciation)
+        denunciation.longitude = MapConfig.longitude
+        denunciation.latitude  = MapConfig.latitute
     }
     
     func validateDununciation() -> Bool {
@@ -162,10 +165,8 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
             denunciation.date == nil ||
             denunciation.date == "" ){
             
-            let validateAlert = UIAlertController(title: "Validação", message: "Campo Obrigatório não foi preenchido!", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            validateAlert.addAction(okAction)
-            self.present(validateAlert, animated: true, completion:nil)
+            MsgAlert().alert("Campo Obrigatório não foi preenchido!", "Validação", .warning)
+            
             return false
             
         }
