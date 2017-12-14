@@ -10,7 +10,6 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
-
 class MapConfig {
     static let latitute = -18.919272
     static let longitude = -48.291317
@@ -130,9 +129,10 @@ class MapViewController: UIViewController , GMSMapViewDelegate {
             print("voce esta a \(distance) metros, e so exibe a no maximo \(maxDistanceToShow)")
         }
         
+        Repository.saveMarker(marker: marker)
+        
     }
-    
-    
+
     
 }
 
