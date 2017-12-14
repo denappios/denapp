@@ -76,7 +76,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
                       MsgAlert().alert("Erro ao realizar login no Facebook", "DenApp", .error)
                     } else {
                         self.getFBUserData()
-                        Authenticate.setAuthenticate(user: credential.provider)
+                        Authenticate.setAuthenticate(user: (Auth.auth().currentUser?.uid)!)
                         self.setupTabBarController()
                     }
                 }
@@ -160,7 +160,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
                     // ...
                     MsgAlert().alert("Erro ao realizar login no Google", "DenApp", .error)
                 } else {
-                    Authenticate.setAuthenticate(user: credential.provider)
+                    Authenticate.setAuthenticate(user: (Auth.auth().currentUser?.uid)!)
                     self.setupTabBarController()
                 }
                 // User is signed in
@@ -187,7 +187,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
                 if error != nil {
                     MsgAlert().alert("Erro ao realizar login", "DenApp", .error)
                 } else {
-                    Authenticate.setAuthenticate(user: self.txtEmail.text!)
+                    Authenticate.setAuthenticate(user: (Auth.auth().currentUser?.uid)!)
                     self.setupTabBarController()
                 }
                 

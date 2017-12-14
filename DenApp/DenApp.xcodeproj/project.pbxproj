@@ -117,6 +117,7 @@
 		B1252F801FDDCDAA00226544 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B1D099801FD75B08009DFF74 /* Constants.swift */,
 				B1252F811FDDCDF300226544 /* Modal.swift */,
 				B1252F831FDDCE3900226544 /* Calendar.swift */,
 				B1252F851FDDCEE700226544 /* Designables.swift */,
@@ -146,7 +147,6 @@
 			children = (
 				B1D099641FD74391009DFF74 /* LoginViewController.swift */,
 				B1D0997E1FD758E1009DFF74 /* FirstAccessViewController.swift */,
-				B1D099801FD75B08009DFF74 /* Constants.swift */,
 				B1252F891FDDDA7600226544 /* TabBarViewController.swift */,
 				F9D2CC021FE030CD00B0D9B0 /* MapViewController.swift */,
 				0CCEB54C1FDEFE920026E99F /* ConfigurationViewController.swift */,
