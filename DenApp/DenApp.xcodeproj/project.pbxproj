@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0CCEB54D1FDEFE920026E99F /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCEB54C1FDEFE920026E99F /* ConfigurationViewController.swift */; };
+		290A99461FE2DF8D00B51DB6 /* Denunciation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290A99451FE2DF8D00B51DB6 /* Denunciation.swift */; };
+		290A99481FE2DFBA00B51DB6 /* TypeDenunciation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290A99471FE2DFBA00B51DB6 /* TypeDenunciation.swift */; };
+		2981BA4E1FE1913800E1F4A7 /* DenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2981BA4D1FE1913800E1F4A7 /* DenViewController.swift */; };
+		2981BA501FE1B1FC00E1F4A7 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2981BA4F1FE1B1FC00E1F4A7 /* CollectionViewCell.swift */; };
 		79BBC1EE1FDB4944008B676C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79BBC1ED1FDB4943008B676C /* GoogleService-Info.plist */; };
 		B1252F821FDDCDF300226544 /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1252F811FDDCDF300226544 /* Modal.swift */; };
 		B1252F841FDDCE3900226544 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1252F831FDDCE3900226544 /* Calendar.swift */; };
@@ -33,6 +37,10 @@
 
 /* Begin PBXFileReference section */
 		0CCEB54C1FDEFE920026E99F /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
+		290A99451FE2DF8D00B51DB6 /* Denunciation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Denunciation.swift; sourceTree = "<group>"; };
+		290A99471FE2DFBA00B51DB6 /* TypeDenunciation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDenunciation.swift; sourceTree = "<group>"; };
+		2981BA4D1FE1913800E1F4A7 /* DenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenViewController.swift; sourceTree = "<group>"; };
+		2981BA4F1FE1B1FC00E1F4A7 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		4E31ECF4A8442F30182948CF /* Pods-DenApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DenApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DenApp/Pods-DenApp.debug.xcconfig"; sourceTree = "<group>"; };
 		79BBC1ED1FDB4943008B676C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B1252F811FDDCDF300226544 /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
@@ -80,6 +88,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		290A99441FE2DEE000B51DB6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				290A99451FE2DF8D00B51DB6 /* Denunciation.swift */,
+				290A99471FE2DFBA00B51DB6 /* TypeDenunciation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7BFB1F0E8DBA5CB44F6020BA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +114,7 @@
 				B1252F851FDDCEE700226544 /* Designables.swift */,
 				B1252F871FDDCF2C00226544 /* MsgAlert.swift */,
 				B172040B1FE069080095521C /* DropDown.swift */,
+				2981BA4F1FE1B1FC00E1F4A7 /* CollectionViewCell.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -123,6 +141,7 @@
 				B1252F891FDDDA7600226544 /* TabBarViewController.swift */,
 				F9D2CC021FE030CD00B0D9B0 /* MapViewController.swift */,
 				0CCEB54C1FDEFE920026E99F /* ConfigurationViewController.swift */,
+				2981BA4D1FE1913800E1F4A7 /* DenViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -148,6 +167,7 @@
 		B1D099611FD74391009DFF74 /* DenApp */ = {
 			isa = PBXGroup;
 			children = (
+				290A99441FE2DEE000B51DB6 /* Model */,
 				B141D30F1FE184B50035B634 /* Views */,
 				B141D30E1FE184980035B634 /* Storyboards */,
 				B1252F801FDDCDAA00226544 /* Utils */,
@@ -341,14 +361,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9D2CC031FE030CD00B0D9B0 /* MapViewController.swift in Sources */,
+				2981BA4E1FE1913800E1F4A7 /* DenViewController.swift in Sources */,
 				B1D099651FD74391009DFF74 /* LoginViewController.swift in Sources */,
 				B172040C1FE069080095521C /* DropDown.swift in Sources */,
+				290A99481FE2DFBA00B51DB6 /* TypeDenunciation.swift in Sources */,
 				B1252F821FDDCDF300226544 /* Modal.swift in Sources */,
 				B1D099631FD74391009DFF74 /* AppDelegate.swift in Sources */,
 				0CCEB54D1FDEFE920026E99F /* ConfigurationViewController.swift in Sources */,
+				290A99461FE2DF8D00B51DB6 /* Denunciation.swift in Sources */,
 				B1D099811FD75B08009DFF74 /* Constants.swift in Sources */,
 				B1252F861FDDCEE700226544 /* Designables.swift in Sources */,
 				B1D0997F1FD758E1009DFF74 /* FirstAccessViewController.swift in Sources */,
+				2981BA501FE1B1FC00E1F4A7 /* CollectionViewCell.swift in Sources */,
 				B1252F881FDDCF2C00226544 /* MsgAlert.swift in Sources */,
 				B1252F8A1FDDDA7600226544 /* TabBarViewController.swift in Sources */,
 				B1252F841FDDCE3900226544 /* Calendar.swift in Sources */,

@@ -9,13 +9,14 @@
 import Foundation
 import UIKit
 import FSCalendar
-class Calendar: UIView, Modal {
+class Calendar: UIView, Modal, FSCalendarDelegate{
     var backgroundView = UIView()
     var dialogView = UIView()
+    var target:Any?
     
-    convenience init(title:String, calendar: inout FSCalendar) {
+    convenience init(title:String, calendar: inout FSCalendar, _ target:Any) {
         self.init(frame: UIScreen.main.bounds)
-        initialize(title: title, calendar: &calendar)
+        initialize(title: title, calendar: &calendar, target)
         
     }
     override init(frame: CGRect) {
@@ -27,9 +28,10 @@ class Calendar: UIView, Modal {
     }
     
     
-    func initialize(title:String, calendar:inout FSCalendar){
+    func initialize(title:String, calendar:inout FSCalendar, _ target:Any){
         dialogView.clipsToBounds = true
-        
+        self.target = target
+        calendar.delegate = self
         backgroundView.frame = frame
         backgroundView.backgroundColor = UIColor.lightGray
         backgroundView.alpha = 0.3
@@ -81,6 +83,22 @@ class Calendar: UIView, Modal {
         dismiss(animated: true)
     }
     
+    static let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        return formatter
+    }()
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        if target is UILabel{
+            let labelData = target as! UILabel
+            labelData.text = "DATA: \(Calendar.formatter.string(from: date))"
+        }
+        if monthPosition == .previous || monthPosition == .next {
+            calendar.setCurrentPage(date, animated: true)
+        }
+         dismiss(animated: true)
+    }
 }
 
 
