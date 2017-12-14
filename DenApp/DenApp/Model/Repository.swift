@@ -16,18 +16,23 @@ class Repository {
     // Criando referência para o banco de dados
     static var ref: DatabaseReference = Database.database().reference()
     
-    static let USER_ID = "USER_ID"
+  
     
     
     static func saveMarker(marker: GMSMarker) {
         
-        let pinsRef = Repository.ref.child("pins")
+        let markersRef = Repository.ref.child("pins")
         
-        let autoIdPinsRef = pinsRef.childByAutoId()
+        let autoIdMarkersRef = markersRef.childByAutoId()
         
-        let newPinId = autoIdPinsRef.key
+        let newMarkerId = autoIdMarkersRef.key
         
-        self.ref.child("markers").child(newPinId).setValue(["type" : "accident", "lat": String(marker.position.latitude), "lon": String(marker.position.longitude)])
+        let userId = UserDefaults.standard.string(forKey: Constants.USER_ID) ?? "d-A-L-1-L-4"
+        
+    self.ref.child("users").child(userId).child("markers").child(newMarkerId).setValue(["type" : "marker type", "lat": String(marker.position.latitude), "lon": String(marker.position.longitude), "userId" : userId ?? "", "creationDate": String(describing: Date()), "title": marker.title ?? "", "description": marker.snippet])
+        
+        
+        self.ref.child("markers").child(newMarkerId).setValue(["type" : "marker type", "lat": String(marker.position.latitude), "lon": String(marker.position.longitude), "userId" : userId ?? "", "creationDate": String(describing: Date()), "title": marker.title ?? "", "description": marker.snippet])
         
     }
     
@@ -35,16 +40,16 @@ class Repository {
         
         self.ref.child("users").child(uid).setValue(["email" : email, "markers": []])
         
-        UserDefaults.standard.setValue(uid, forKeyPath: USER_ID)
+        UserDefaults.standard.setValue(uid, forKeyPath: Constants.USER_ID)
         
     }
     
-    
+    //TODO
     static func printMarkers() {
         
-        let pinsRef = Repository.ref.child("pins")
+        let markersRef = Repository.ref.child("markers")
         
-        pinsRef.observe(DataEventType.value, with: { (snapshot) in
+        markersRef.observe(DataEventType.value, with: { (snapshot) in
             
             if snapshot.childrenCount > 0 {
                 
@@ -61,9 +66,9 @@ class Repository {
                         //print("snap.key \(snap.key)")
                         //print("snap.value \(snap.value as? [String:String])")
                         
-                        let pin = snap.value as? [String:String]
+                        let marker = snap.value as? [String:String]
                         
-                        for fields in pin! {
+                        for fields in marker! {
                             print("- \(fields.key) \(fields.value)")
                         }
                         
