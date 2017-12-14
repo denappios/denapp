@@ -14,6 +14,7 @@ import Fabric
 import Crashlytics
 import GoogleMaps
 import GooglePlaces
+import IQKeyboardManagerSwift
 
 
 @UIApplicationMain
@@ -37,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey("AIzaSyCyX9dwlJ5KKk-GijhwMcgwRpWjqppmO2Q")
         GMSPlacesClient.provideAPIKey("AIzaSyDxKKaZs9z9BeD5d1eXnBEehnuQrNC2_nw")
 
+        IQKeyboardManager.sharedManager().enable  = true
         
         return true
     }
