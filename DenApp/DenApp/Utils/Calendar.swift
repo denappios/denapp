@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import FSCalendar
-class Calendar: UIView, Modal {
+class CalendarSwift: UIView, Modal {
     var backgroundView = UIView()
     var dialogView = UIView()
     

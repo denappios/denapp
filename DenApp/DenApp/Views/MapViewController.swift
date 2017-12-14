@@ -14,8 +14,10 @@ import GooglePlaces
 class MapConfig {
     static let latitute = -18.919272
     static let longitude = -48.291317
+
     static let zoomLevel = 11.58
     static let actualPosition = GMSMarker()
+
 }
 
 class MapViewController: UIViewController , GMSMapViewDelegate {

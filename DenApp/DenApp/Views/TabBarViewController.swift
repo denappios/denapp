@@ -31,7 +31,13 @@ class TabBarViewController: YALFoldingTabBarController, YALTabBarDelegate {
         print("testando segue")
     }
     
+    func tabBarDidExpand(_ tabBar: YALFoldingTabBar) {
+        print("dali viado")
+    }
     
+    func tabBarDidCollapse(_ tabBar: YALFoldingTabBar) {
+        print("dali mais viado")
+    }
     
     func tabBarDidSelectExtraLeftItem(_ tabBar: YALFoldingTabBar) {
         self.performSegue(withIdentifier: "showSearch", sender: nil)

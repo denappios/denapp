@@ -10,7 +10,8 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import FBSDKCoreKit
-
+import Fabric
+import Crashlytics
 import GoogleMaps
 import GooglePlaces
 
@@ -31,6 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+
+        Fabric.with([Crashlytics.self])
+
         GMSServices.provideAPIKey("AIzaSyCyX9dwlJ5KKk-GijhwMcgwRpWjqppmO2Q")
         GMSPlacesClient.provideAPIKey("AIzaSyDxKKaZs9z9BeD5d1eXnBEehnuQrNC2_nw")
 
