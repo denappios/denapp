@@ -29,10 +29,10 @@ class Repository {
         
         let userId = UserDefaults.standard.string(forKey: Constants.USER_ID) ?? "d-A-L-1-L-4"
         
-    self.ref.child("users").child(userId).child("markers").child(newMarkerId).setValue(["type" : "marker type", "lat": String(marker.position.latitude), "lon": String(marker.position.longitude), "userId" : userId ?? "", "creationDate": String(describing: Date()), "title": marker.title ?? "", "description": marker.snippet])
+    self.ref.child("users").child(userId).child("markers").child(newMarkerId).setValue(["type" : "2", "lat": String(marker.position.latitude), "lon": String(marker.position.longitude), "userId" : userId ?? "", "creationDate": String(describing: Date()), "title": marker.title ?? "", "description": marker.snippet])
         
         
-        self.ref.child("markers").child(newMarkerId).setValue(["type" : "marker type", "lat": String(marker.position.latitude), "lon": String(marker.position.longitude), "userId" : userId ?? "", "creationDate": String(describing: Date()), "title": marker.title ?? "", "description": marker.snippet])
+        self.ref.child("markers").child(newMarkerId).setValue(["type" : "1", "lat": String(marker.position.latitude), "lon": String(marker.position.longitude), "userId" : userId ?? "", "creationDate": String(describing: Date()), "title": marker.title ?? "", "description": marker.snippet])
         
     }
     
@@ -91,6 +91,14 @@ class Repository {
             
         })
 
+    }
+    
+    static func getLoggedUserId() -> String? {
+        
+        if let uuid = UserDefaults().object(forKey: Constants.USER_ID)  {
+            return (uuid as! String)
+        }
+        return nil
     }
     
 }
