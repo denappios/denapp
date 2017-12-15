@@ -11,6 +11,8 @@ import TextFieldEffects
 import GoogleMaps
 import GooglePlaces
 import Floaty
+import FirebaseDatabase
+import FirebaseStorage
 
 class SearchDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var btnBack: Floaty!
@@ -19,6 +21,8 @@ class SearchDetailViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var txtDate: HoshiTextField!
     @IBOutlet weak var txtTitle: HoshiTextField!
     @IBOutlet weak var viewMap: GMSMapView!
+    
+    @IBOutlet weak var collectionPhotos: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.txtDescription.text = den?.descriacao
@@ -27,7 +31,41 @@ class SearchDetailViewController: UIViewController, UICollectionViewDelegate, UI
         loadViewMap()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.backPage))
         btnBack.addGestureRecognizer(tapGesture)
+        getPhotos()
    }
+    
+    func getPhotos() {
+        self.den?.fotos = []
+        var list: [UIImage] = []
+        Repository.ref.child("images").child((den?.key)!).observe(DataEventType.value, with: { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                    for snap in snapshots {
+                        // Get download URL from snapshot
+                        let downloadURL = snap.value as? String
+                        // Create a storage reference from the URL
+                        let storageRef = Storage.storage().reference(forURL: downloadURL!)
+                        // Download the data, assuming a max size of 1MB (you can change this as necessary)
+                        storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                            if let error = error {
+                                // Uh-oh, an error occurred!
+                            } else {
+                                // Data for "images/island.jpg" is returned
+                                let image = UIImage(data: data!)
+                                self.den?.fotos.append(image!)
+                                self.collectionPhotos.reloadData()
+                                }
+                        }
+                    }
+                }
+            }
+
+            
+        })
+        
+        
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
