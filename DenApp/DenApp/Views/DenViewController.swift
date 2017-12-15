@@ -16,7 +16,7 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
     @IBOutlet weak var collectioView: UICollectionView!
     
     @IBOutlet weak var textTitle: UITextField!
-   
+    
     @IBOutlet weak var backButton: Floaty!
     
     @IBOutlet weak var saveButton: Floaty!
@@ -27,6 +27,8 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
     @IBOutlet weak var textDescription: UITextView!
     
     var listImagens: [UIImage] = [#imageLiteral(resourceName: "iconCamera"),#imageLiteral(resourceName: "iconCamera"),#imageLiteral(resourceName: "iconCamera")]
+    
+    var listImagensString: [String] = []
     
     var indexPath: IndexPath?
     
@@ -43,9 +45,9 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
         initGesture()
         
         //TODO - Remover posteriormente MOCK de localizaçao
-       
-     
-
+        
+        
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -128,6 +130,7 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             listImagens[(indexPath?.row)!] = pickedImage
             getImages()
+            uploadImagem(image: pickedImage)
         }
         dismiss(animated: true, completion: nil)
     }
@@ -141,11 +144,11 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
     }
     
     @objc func saveDenunciation(){
-       
+        
         createDenuciation()
         if(validateDununciation()){
-             print("Salvando Denunciation...")
-             print(denunciation)
+            print("Salvando Denunciation...")
+            print(denunciation)
         }
     }
     
@@ -204,8 +207,16 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
     }
     
     
-    
-    
+    func uploadImagem(image: UIImage) {
+        Repository.uploadImage(image) { url in
+            if url != nil {
+                print(url)
+                self.listImagensString.append(url!)
+            } else {
+                MsgAlert().alert("Erro durante o Upload da imagem", "DenApp", .error)
+            }
+        }
+    }
     
     /*
      // MARK: - Navigation

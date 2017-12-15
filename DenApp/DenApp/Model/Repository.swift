@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import FirebaseDatabase
+import FirebaseStorage
 import GoogleMaps
 
 class Repository {
@@ -101,4 +102,21 @@ class Repository {
         return nil
     }
     
-}
+    
+    static func uploadImage(_ image: UIImage, completion: @escaping (_ url: String?) -> Void) {
+        let imageName = "\(Date().timeIntervalSince1970).jpg"
+        let storageRef = Storage.storage().reference().child("denAppImagens").child(imageName)
+        if let uploadData = UIImageJPEGRepresentation(image, 0.8) {
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+            storageRef.putData(uploadData, metadata: metadata) { (metadata, error) in
+                if error != nil {
+                    print(error?.localizedDescription)
+                    completion(nil)
+                } else {
+                    completion((metadata?.downloadURL()?.absoluteString)!)
+                }
+            }
+        }
+    }
+ }

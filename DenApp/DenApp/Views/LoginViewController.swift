@@ -35,7 +35,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         }
         
         if Authenticate.getAuthenticate() {
-            self.setupTabBarController()
+            //self.setupTabBarController()
          }
         
     }
@@ -77,6 +77,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
                     } else {
                         self.getFBUserData()
                         Authenticate.setAuthenticate(user: (Auth.auth().currentUser?.uid)!)
+                        Repository.saveUser(uid: (Auth.auth().currentUser?.uid)!, email: "")
                         self.setupTabBarController()
                     }
                 }
@@ -161,6 +162,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
                     MsgAlert().alert("Erro ao realizar login no Google", "DenApp", .error)
                 } else {
                     Authenticate.setAuthenticate(user: (Auth.auth().currentUser?.uid)!)
+                    Repository.saveUser(uid: (Auth.auth().currentUser?.uid)!, email: "")
                     self.setupTabBarController()
                 }
                 // User is signed in
