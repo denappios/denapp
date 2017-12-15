@@ -161,8 +161,8 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
         denunciation.date = labelDate.text
         denunciation.listImagens = listImagens
         denunciation.type = TypeDenunciation.getValues(id: typeDenuciation)
-        denunciation.longitude = MapConfig.longitude
-        denunciation.latitude  = MapConfig.latitute
+        denunciation.longitude = MapConfig.actualPosition.position.longitude
+        denunciation.latitude  = MapConfig.actualPosition.position.latitude
     }
     
     func validateDununciation() -> Bool {

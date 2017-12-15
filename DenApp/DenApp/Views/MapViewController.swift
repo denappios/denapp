@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import FirebaseDatabase
 
 class MapConfig {
     static let latitute = -18.919272
@@ -17,8 +18,6 @@ class MapConfig {
     static let zoomLevel = 11.58
     static let actualPosition = GMSMarker()
     static let rangeRadius = [500,1000,1500,2000]
-    
-    
 }
 
 class MapViewController: UIViewController , GMSMapViewDelegate {
@@ -26,6 +25,7 @@ class MapViewController: UIViewController , GMSMapViewDelegate {
     var mapView: GMSMapView?
     var positions = [GMSMarker]()
     var maxDistanceToShow = 0
+    let uuidCurrentUser = Repository.getLoggedUserId()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,12 @@ class MapViewController: UIViewController , GMSMapViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         maxDistanceToShow = UserDefaults.standard.integer(forKey: Constants.rangeRadius) //index referente ao array rangeRadius
         mapView?.clear()//limpar todos os markers
-        loadLocal()
+        mapView?.isMyLocationEnabled = true
+        if positions.count  == 0 {
+            loadLocal() //carrega a posicao atual do usuario e lista posicoes
+        }else {
+            loadMarkers() //somente lista posicoes
+        }
         
     }
     
@@ -46,7 +51,6 @@ class MapViewController: UIViewController , GMSMapViewDelegate {
         super.didReceiveMemoryWarning()
         
     }
-    
     
     override func loadView() {
         let camera = GMSCameraPosition.camera(withLatitude: MapConfig.latitute, longitude: MapConfig.longitude, zoom: Float(MapConfig.zoomLevel))
@@ -70,71 +74,86 @@ class MapViewController: UIViewController , GMSMapViewDelegate {
         placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
             if let error = error {
                 print("Pick Place error: \(error.localizedDescription)")
-                self.loadMarkers()
+                MapConfig.actualPosition.position = CLLocationCoordinate2D(latitude: MapConfig.latitute, longitude: MapConfig.longitude)
+                self.listMarkersByApplication()
                 return
             }
             if let placeLikelihoodList = placeLikelihoodList {
                 let place = placeLikelihoodList.likelihoods.first?.place
                 if let place = place {
-                    
-                    
                     MapConfig.actualPosition.position = CLLocationCoordinate2D(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
                     MapConfig.actualPosition.title = place.name
-                    //marker.icon
                     MapConfig.actualPosition.icon = GMSMarker.markerImage(with: .red)
-                    MapConfig.actualPosition.snippet = "Nova denuncia aqui"
-                    
+                    MapConfig.actualPosition.snippet = "Nova denuncia"
                     MapConfig.actualPosition.map = self.mapView
-                    
-                    //self.mapView?.camera = GMSCameraPosition.camera(withLatitude: MapConfig.actualPosition.position.latitude, longitude: MapConfig.actualPosition.position.longitude, zoom: Float(MapConfig.zoomLevel))
-                    self.loadMarkers()
-                    
+                    self.listMarkersByApplication()
                 }
             }
         })
     }
     
-    
+    func listMarkersByApplication() {
+        self.positions = [GMSMarker]()//limpa as posicoes no mapa
+        Repository.ref.child("markers").observe(DataEventType.value, with: { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                    for snap in snapshots {
+                        
+                        if let pin = snap.value as? [String:String] {
+                        
+                            let title = pin["title"]
+                            let desc = pin["description"]
+                            let dt = pin["creationDate"]
+                            let lat = Double((pin["lat"]! as NSString).doubleValue)
+                            let lon = Double((pin["lon"]! as NSString).doubleValue)
+                            let type = Int(pin["type"]!)
+                        
+                        
+                        // TODO: Utilizar imagens reais
+                        let d = Den(title!, type!, lat, lon, dt!, desc!, [#imageLiteral(resourceName: "iconCrime"),#imageLiteral(resourceName: "iconCamera"),#imageLiteral(resourceName: "iconFire")])
+                        self.positions.append(d.toMarker())
+                        }
+                        else {
+                            print("erro no objeto \(snap.value)")
+                        }
+                        
+                    }
+                }
+            }
+            self.loadMarkers()
+        })
+    }
     
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        //self.actualPosition.map = nil
         MapConfig.actualPosition.position = coordinate
-        MapConfig.actualPosition.title = "Nova denuncia aqui"
-        MapConfig.actualPosition.snippet = "Aqui"
+        MapConfig.actualPosition.title = "Nova denuncia"
+        MapConfig.actualPosition.snippet = ""
         MapConfig.actualPosition.map = self.mapView
-        createMarker(coordinate)//para testes somente
-        
     }
     func loadMarkers()  {
 
             for item in self.positions {
                 let distance : Double = calcuDistance(item)
                 print("voce esta a \(distance) metros, e so exibe a no maximo \(MapConfig.rangeRadius[maxDistanceToShow])")
-                if Double(MapConfig.rangeRadius[maxDistanceToShow]) > distance  {
+                if Double(MapConfig.rangeRadius[maxDistanceToShow]) > distance ||  !CLLocationManager.locationServicesEnabled()  {
                    item.map = mapView
                 }
                 
             }
         
     }
-    func createMarker(_ coordinate: CLLocationCoordinate2D) {
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: coordinate.latitude , longitude: coordinate.longitude )
-        marker.title = "Acidente aqui"
-        marker.icon = UIImage(named : "iconAccident")
-        marker.snippet = "roda dura do krl"
-        marker.isFlat = true
-        marker.map = mapView
-        positions.append(marker)
-        
-        print("latitute : \(coordinate.latitude) longitude:\(coordinate.longitude)")
-        print("")
-        
-        
-        Repository.saveMarker(marker: marker)
-        
-    }
+}
 
+extension Den {
+    func toMarker() -> GMSMarker {
+        let item = GMSMarker()
+        item.title = self.title
+        item.snippet = self.descriacao
+        item.position = CLLocationCoordinate2D(latitude: self.latitute , longitude: self.longitude )
+        item.isFlat = true
+        item.icon =  TypeDen.indentifyType(self.typeDen)
+        return item
+    }
     
 }
 

@@ -35,8 +35,8 @@ class Repository {
         
     self.ref.child("users").child(userId).child("markers").child(newMarkerId)
         .setValue(["type" : "\(marker.type!.getCode())",
-                "lat": "\(marker.latitude)",
-                "lon": "\(marker.longitude)",
+                "lat": "\(marker.latitude!)",
+                "lon": "\(marker.longitude!)",
                 "userId" : userId,
                 "creationDate": marker.date,
                 "title": marker.title,
@@ -45,8 +45,8 @@ class Repository {
         
         self.ref.child("markers").child(newMarkerId)
             .setValue(["type" : "\(marker.type!.getCode())",
-                "lat": "\(marker.latitude)",
-                "lon": "\(marker.longitude)",
+                "lat": "\(marker.latitude!)",
+                "lon": "\(marker.longitude!)",
                 "userId" : userId,
                 "creationDate": marker.date,
                 "title": marker.title,
