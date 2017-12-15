@@ -9,7 +9,7 @@
 import UIKit
 import Floaty
 import FirebaseDatabase
-import FirebaseStorageUI
+import FirebaseStorage
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -49,18 +49,18 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         
                         // TODO: Utilizar imagens reais
                         
-                        Repository.ref.child("images").child(pin!["id"]!).observe(DataEventType.value, with: { (snapshot) in
+                        Repository.ref.child("images").child(snap.key).observe(DataEventType.value, with: { (snapshot) in
                             if snapshot.childrenCount > 0 {
                                 if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
                                     for snap in snapshots {
                                         // Get download URL from snapshot
-                                        let downloadURL = snap.value as! String
+                                        let downloadURL = snap.value as? String
                                         // Create a storage reference from the URL
-                                        let storageRef = Storage().reference(forURL: downloadURL)
+                                        let storageRef = Storage.storage().reference(forURL: downloadURL!)
                                         // Download the data, assuming a max size of 1MB (you can change this as necessary)
-                                        storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                                       let downloadTask =  storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
                                             if let error = error {
-                                                // Uh-oh, an error occurred!
+                                                print(error.localizedDescription)
                                             } else {
                                                 // Data for "images/island.jpg" is returned
                                                 let image = UIImage(data: data!)
@@ -68,15 +68,21 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                             }
                                         }
                                     }
+//                                    downloadTask.observe(.success) { snapshot in
+//                                        let d = Den(title!, type!, lat, lon, dt!, desc!, list)
+//                                        self.dens.append(d)
+//                                        self.tableView.reloadData()
+//                                    }
                                 }
                             }
-                            let d = Den(title!, type!, lat, lon, dt!, desc!, list)
-                            self.dens.append(d)
+                            
+                         
+                           
                         })
                    }
                 }
             }
-            self.tableView.reloadData()
+          
         })
     }
     

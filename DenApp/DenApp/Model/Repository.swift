@@ -135,7 +135,7 @@ class Repository {
             if image != #imageLiteral(resourceName: "iconCamera") {
             let imageName = "\(Date().timeIntervalSince1970).jpg"
             let storageRef = Storage.storage().reference().child(idMarker).child(imageName)
-            if let uploadData = UIImageJPEGRepresentation(image, 0.8) {
+            if let uploadData = UIImageJPEGRepresentation(image, 0.25) {
                 let metadata = StorageMetadata()
                 metadata.contentType = "image/jpeg"
                 storageRef.putData(uploadData, metadata: metadata) { (metadata, error) in
