@@ -42,16 +42,15 @@ class FirstAccessViewController: UIViewController {
         
             Auth.auth().createUser(withEmail: self.txtEmail.text!, password: self.txtPassword.text!) { (user, error) in
                 
-                let userId = Auth.auth().currentUser?.uid
-                
-                Repository.saveUser(uid: userId!, email: self.txtEmail.text!)
-                
                 print("User: \(user)")
-                print("User: \(error)")
+                print("Error: \(error)")
                 
                 if error != nil {
                     MsgAlert().alert("Erro ao cadastrar e-mail", "DenApp", .error)
                 } else {
+
+                    let userId = Auth.auth().currentUser?.uid
+                    Repository.saveUser(uid: userId!, email: self.txtEmail.text!)
                     
                     MsgAlert().alert("Usuário cadastrado com sucesso", "DenApp", .success)
                 }
