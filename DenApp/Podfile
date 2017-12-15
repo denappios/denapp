@@ -9,6 +9,8 @@ target 'DenApp' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  pod 'FirebaseUI/Storage'
   pod 'GoogleSignIn'
   pod 'FoldingTabBar', '~> 1.1.2'
   pod 'Floaty', '~> 4.0.0'
