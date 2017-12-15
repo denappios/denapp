@@ -18,9 +18,9 @@ class TypeDen {
             case 1:
                 return #imageLiteral(resourceName: "iconFire")
             case 2:
-                return #imageLiteral(resourceName: "iconCrime2")
-            case 3:
                 return #imageLiteral(resourceName: "iconAccident")
+            case 3:
+                return #imageLiteral(resourceName: "iconCrime2")
             case 4:
                 return #imageLiteral(resourceName: "iconWildAnimals")
             default:

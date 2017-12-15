@@ -35,7 +35,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         }
         
         if Authenticate.getAuthenticate() {
-            //self.setupTabBarController()
+            self.setupTabBarController()
          }
         
     }
