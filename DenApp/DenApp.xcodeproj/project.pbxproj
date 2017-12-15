@@ -83,6 +83,7 @@
 		B1E9B6A41FE18A4500660FFF /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
 		B1E9B6A71FE18F5900660FFF /* TypeDen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDen.swift; sourceTree = "<group>"; };
 		D4D81797FA122EDBF4D80CC3 /* Pods-DenApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DenApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DenApp/Pods-DenApp.release.xcconfig"; sourceTree = "<group>"; };
+		F9BEC7A01FE449C600F94F13 /* UberlandiaLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = UberlandiaLocation.gpx; sourceTree = "<group>"; };
 		F9D2CC021FE030CD00B0D9B0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FF6754B4133A198594F45115 /* Pods_DenApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DenApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -223,6 +224,7 @@
 				B1D099691FD74391009DFF74 /* Assets.xcassets */,
 				B1D0996B1FD74391009DFF74 /* LaunchScreen.storyboard */,
 				B1D0996E1FD74391009DFF74 /* Info.plist */,
+				F9BEC7A01FE449C600F94F13 /* UberlandiaLocation.gpx */,
 			);
 			name = supportfiles;
 			sourceTree = "<group>";
