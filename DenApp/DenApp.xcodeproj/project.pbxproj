@@ -120,8 +120,8 @@
 		7965D9021FE2E7A1009EC583 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				29E1BDC31FE30554005F5FD6 /* Denunciation.swift */,
 				29E1BDC41FE30554005F5FD6 /* Repository.swift */,
+				29E1BDC31FE30554005F5FD6 /* Denunciation.swift */,
 				29E1BDC51FE30554005F5FD6 /* TypeDenunciation.swift */,
 			);
 			name = Model;

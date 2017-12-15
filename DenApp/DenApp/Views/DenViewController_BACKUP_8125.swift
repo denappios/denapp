@@ -143,18 +143,22 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
         dismiss(animated: true, completion: nil)
     }
     
-@objc func saveDenunciation(){
-    
-    createDenuciation()
-    if(validateDununciation()){
-        print("Salvando Denunciation...")
-        Repository.saveMarker(marker: denunciation)
-        print("Denuncia: \(denunciation)")
+    @objc func saveDenunciation(){
         
-        self.dismiss(animated: true, completion: nil)
+        createDenuciation()
+        if(validateDununciation()){
+            print("Salvando Denunciation...")
+<<<<<<< HEAD
+            print(denunciation)
+=======
+            Repository.saveMarker(marker: denunciation)
+            print("Denuncia: \(denunciation)")
+            
+            self.dismiss(animated: true, completion: nil)
+>>>>>>> 07ee25a113468fab71d22dcb097bb10e5eca0109
+        }
     }
-}
-
+    
     func createDenuciation () {
         denunciation.title = textTitle.text
         denunciation.desc = textDescription.text
