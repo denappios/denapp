@@ -30,4 +30,16 @@ enum TypeDenunciation {
         }
     }
     
+    func getCode() -> Int {
+        switch self {
+        case .FIRE:
+            return 1
+        case .ACCIDENT:
+            return 2
+        case .CRIME:
+            return 3
+        case .WILD_ANIMALS:
+            return 4
+    }
+    }
 }
