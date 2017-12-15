@@ -35,7 +35,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         }
         
         if Authenticate.getAuthenticate() {
-            self.setupTabBarController()
+            //self.setupTabBarController()
          }
         
     }
@@ -77,6 +77,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
                     } else {
                         self.getFBUserData()
                         Authenticate.setAuthenticate(user: (Auth.auth().currentUser?.uid)!)
+                        Repository.saveUser(uid: (Auth.auth().currentUser?.uid)!, email: "")
                         self.setupTabBarController()
                     }
                 }
@@ -105,9 +106,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         
         let item1 = YALTabBarItem(itemImage: #imageLiteral(resourceName: "iconFire"), leftItemImage: UIImage(named: "search_icon"), rightItemImage: UIImage(named: "settings_icon"))
         let item2 = YALTabBarItem(itemImage: #imageLiteral(resourceName: "iconAccident2"), leftItemImage: UIImage(named: "search_icon"), rightItemImage: UIImage(named: "settings_icon"))
-        let item3 = YALTabBarItem(itemImage: #imageLiteral(resourceName: "iconWildAnimals"), leftItemImage: UIImage(named: "search_icon"), rightItemImage: UIImage(named: "settings_icon"))
+        let item4 = YALTabBarItem(itemImage: #imageLiteral(resourceName: "iconWildAnimals"), leftItemImage: UIImage(named: "search_icon"), rightItemImage: UIImage(named: "settings_icon"))
         
-        let item4 = YALTabBarItem(itemImage: #imageLiteral(resourceName: "iconCrime2"), leftItemImage: UIImage(named: "search_icon"), rightItemImage: UIImage(named: "settings_icon"))
+        let item3 = YALTabBarItem(itemImage: #imageLiteral(resourceName: "iconCrime2"), leftItemImage: UIImage(named: "search_icon"), rightItemImage: UIImage(named: "settings_icon"))
         
         tabBarController.leftBarItems = [item1, item2]
         
@@ -161,6 +162,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
                     MsgAlert().alert("Erro ao realizar login no Google", "DenApp", .error)
                 } else {
                     Authenticate.setAuthenticate(user: (Auth.auth().currentUser?.uid)!)
+                    Repository.saveUser(uid: (Auth.auth().currentUser?.uid)!, email: "")
                     self.setupTabBarController()
                 }
                 // User is signed in

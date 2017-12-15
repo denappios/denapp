@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import FirebaseDatabase
+import FirebaseStorage
 import GoogleMaps
 
 class Repository {
@@ -16,32 +17,46 @@ class Repository {
     // Criando referência para o banco de dados
     static var ref: DatabaseReference = Database.database().reference()
     
-  
-    
-    
     static func saveMarker(marker: GMSMarker) {
-        
-        let markersRef = Repository.ref.child("pins")
-        
+        let markersRef = Repository.ref.child("markers")
         let autoIdMarkersRef = markersRef.childByAutoId()
-        
         let newMarkerId = autoIdMarkersRef.key
-        
         let userId = UserDefaults.standard.string(forKey: Constants.USER_ID) ?? "d-A-L-1-L-4"
-        
-    self.ref.child("users").child(userId).child("markers").child(newMarkerId).setValue(["type" : "2", "lat": String(marker.position.latitude), "lon": String(marker.position.longitude), "userId" : userId ?? "", "creationDate": String(describing: Date()), "title": marker.title ?? "", "description": marker.snippet])
-        
+        self.ref.child("users").child(userId).child("markers").child(newMarkerId).setValue(["type" : "2", "lat": String(marker.position.latitude), "lon": String(marker.position.longitude), "userId" : userId ?? "", "creationDate": String(describing: Date()), "title": marker.title ?? "", "description": marker.snippet])
         
         self.ref.child("markers").child(newMarkerId).setValue(["type" : "1", "lat": String(marker.position.latitude), "lon": String(marker.position.longitude), "userId" : userId ?? "", "creationDate": String(describing: Date()), "title": marker.title ?? "", "description": marker.snippet])
-        
     }
     
+    static func saveMarker(marker: Denunciation) {
+        let markersRef = Repository.ref.child("markers")
+        let autoIdMarkersRef = markersRef.childByAutoId()
+        let newMarkerId = autoIdMarkersRef.key
+        let userId = UserDefaults.standard.string(forKey: Constants.USER_ID) ?? "d-A-L-1-L-4"
+        
+    self.ref.child("users").child(userId).child("markers").child(newMarkerId)
+        .setValue(["type" : "\(marker.type!.getCode())",
+                "lat": "\(marker.latitude)",
+                "lon": "\(marker.longitude)",
+                "userId" : userId,
+                "creationDate": marker.date,
+                "title": marker.title,
+                "description": marker.desc])
+        
+        
+        self.ref.child("markers").child(newMarkerId)
+            .setValue(["type" : "\(marker.type!.getCode())",
+                "lat": "\(marker.latitude)",
+                "lon": "\(marker.longitude)",
+                "userId" : userId,
+                "creationDate": marker.date,
+                "title": marker.title,
+                "description": marker.desc])
+    }
+    
+    
     static func saveUser(uid: String, email: String) {
-        
         self.ref.child("users").child(uid).setValue(["email" : email, "markers": []])
-        
         UserDefaults.standard.setValue(uid, forKeyPath: Constants.USER_ID)
-        
     }
     
     //TODO
@@ -101,4 +116,21 @@ class Repository {
         return nil
     }
     
-}
+    
+    static func uploadImage(_ image: UIImage, completion: @escaping (_ url: String?) -> Void) {
+        let imageName = "\(Date().timeIntervalSince1970).jpg"
+        let storageRef = Storage.storage().reference().child("denAppImagens").child(imageName)
+        if let uploadData = UIImageJPEGRepresentation(image, 0.8) {
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+            storageRef.putData(uploadData, metadata: metadata) { (metadata, error) in
+                if error != nil {
+                    print(error?.localizedDescription)
+                    completion(nil)
+                } else {
+                    completion((metadata?.downloadURL()?.absoluteString)!)
+                }
+            }
+        }
+    }
+ }
