@@ -130,7 +130,7 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             listImagens[(indexPath?.row)!] = pickedImage
             getImages()
-            uploadImagem(image: pickedImage)
+            //uploadImagem(image: pickedImage)
         }
         dismiss(animated: true, completion: nil)
     }
