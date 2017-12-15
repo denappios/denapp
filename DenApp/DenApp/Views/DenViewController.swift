@@ -144,8 +144,11 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
        
         createDenuciation()
         if(validateDununciation()){
-             print("Salvando Denunciation...")
-             print(denunciation)
+            print("Salvando Denunciation...")
+            Repository.saveMarker(marker: denunciation)
+            print("Denuncia: \(denunciation)")
+            
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
