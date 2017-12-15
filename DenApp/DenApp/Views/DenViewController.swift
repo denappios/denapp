@@ -210,16 +210,7 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
     }
     
     
-    func uploadImagem(image: UIImage) {
-        Repository.uploadImage(image) { url in
-            if url != nil {
-                print(url)
-                self.listImagensString.append(url!)
-            } else {
-                MsgAlert().alert("Erro durante o Upload da imagem", "DenApp", .error)
-            }
-        }
-    }
+   
     
     /*
      // MARK: - Navigation

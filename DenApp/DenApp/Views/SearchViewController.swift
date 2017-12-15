@@ -9,6 +9,7 @@
 import UIKit
 import Floaty
 import FirebaseDatabase
+import FirebaseStorageUI
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -21,7 +22,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         listMarkersByLoggedUser()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.backPage))
@@ -31,6 +32,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func listMarkersByLoggedUser() {
         let uuid = Repository.getLoggedUserId()
         self.dens.removeAll()
+        var list: [UIImage] = []
         Repository.ref.child("users").child(uuid!).child("markers").observe(DataEventType.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
                 if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
@@ -46,10 +48,32 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         let type = Int(pin!["type"]!)
                         
                         // TODO: Utilizar imagens reais
-                        let d = Den(title!, type!, lat, lon, dt!, desc!, [#imageLiteral(resourceName: "iconCrime"),#imageLiteral(resourceName: "iconCamera"),#imageLiteral(resourceName: "iconFire")])
-                        self.dens.append(d)
                         
-                    }
+                        Repository.ref.child("images").child(pin!["id"]!).observe(DataEventType.value, with: { (snapshot) in
+                            if snapshot.childrenCount > 0 {
+                                if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                                    for snap in snapshots {
+                                        // Get download URL from snapshot
+                                        let downloadURL = snap.value as! String
+                                        // Create a storage reference from the URL
+                                        let storageRef = Storage().reference(forURL: downloadURL)
+                                        // Download the data, assuming a max size of 1MB (you can change this as necessary)
+                                        storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                                            if let error = error {
+                                                // Uh-oh, an error occurred!
+                                            } else {
+                                                // Data for "images/island.jpg" is returned
+                                                let image = UIImage(data: data!)
+                                                list.append(image!)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            let d = Den(title!, type!, lat, lon, dt!, desc!, list)
+                            self.dens.append(d)
+                        })
+                   }
                 }
             }
             self.tableView.reloadData()
@@ -117,6 +141,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @objc func backPage() {
         dismiss(animated: true, completion: nil)
     }
+
     
     
 }

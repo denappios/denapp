@@ -51,7 +51,19 @@ class Repository {
                 "creationDate": marker.date,
                 "title": marker.title,
                 "description": marker.desc])
+        
+        Repository.uploadImage(marker.listImagens,newMarkerId ) { url in
+            if url != nil {
+                print(url)
+           } else {
+                MsgAlert().alert("Erro durante o Upload da imagem", "DenApp", .error)
+            }
+        
     }
+        
+    }
+    
+  
     
     
     static func saveUser(uid: String, email: String) {
@@ -117,20 +129,27 @@ class Repository {
     }
     
     
-    static func uploadImage(_ image: UIImage, completion: @escaping (_ url: String?) -> Void) {
-        let imageName = "\(Date().timeIntervalSince1970).jpg"
-        let storageRef = Storage.storage().reference().child("denAppImagens").child(imageName)
-        if let uploadData = UIImageJPEGRepresentation(image, 0.8) {
-            let metadata = StorageMetadata()
-            metadata.contentType = "image/jpeg"
-            storageRef.putData(uploadData, metadata: metadata) { (metadata, error) in
-                if error != nil {
-                    print(error?.localizedDescription)
-                    completion(nil)
-                } else {
-                    completion((metadata?.downloadURL()?.absoluteString)!)
+    static func uploadImage(_ list: [UIImage], _ idMarker: String, completion: @escaping (_ url: String?) -> Void) {
+        let dbRef = Repository.ref.child("images").child(idMarker)
+        for image in list {
+            if image != #imageLiteral(resourceName: "iconCamera") {
+            let imageName = "\(Date().timeIntervalSince1970).jpg"
+            let storageRef = Storage.storage().reference().child(idMarker).child(imageName)
+            if let uploadData = UIImageJPEGRepresentation(image, 0.8) {
+                let metadata = StorageMetadata()
+                metadata.contentType = "image/jpeg"
+                storageRef.putData(uploadData, metadata: metadata) { (metadata, error) in
+                    if error != nil {
+                        print(error?.localizedDescription)
+                        completion(nil)
+                    } else {
+                        dbRef.setValue(["url":(metadata?.downloadURL()?.absoluteString)!])
+                        completion((metadata?.downloadURL()?.absoluteString)!)
+                    }
                 }
             }
         }
+        }
+  
     }
  }
