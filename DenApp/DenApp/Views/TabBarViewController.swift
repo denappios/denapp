@@ -40,7 +40,7 @@ class TabBarViewController: YALFoldingTabBarController, YALTabBarDelegate {
     }
     
     func tabBarDidCollapse(_ tabBar: YALFoldingTabBar) {
-        print("dali mais viado")
+       
     }
     
     func tabBarDidSelectExtraLeftItem(_ tabBar: YALFoldingTabBar) {
