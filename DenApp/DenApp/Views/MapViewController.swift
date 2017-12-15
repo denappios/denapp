@@ -110,7 +110,7 @@ class MapViewController: UIViewController , GMSMapViewDelegate {
                         
                         
                         // TODO: Utilizar imagens reais
-                        let d = Den(title!, type!, lat, lon, dt!, desc!, [#imageLiteral(resourceName: "iconCrime"),#imageLiteral(resourceName: "iconCamera"),#imageLiteral(resourceName: "iconFire")])
+                        let d = Den(title!, type!, lat, lon, dt!, desc!, [#imageLiteral(resourceName: "iconCrime"),#imageLiteral(resourceName: "iconCamera"),#imageLiteral(resourceName: "iconFire")], snap.key)
                         self.positions.append(d.toMarker())
                         }
                         else {

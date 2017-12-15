@@ -48,41 +48,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         let type = Int(pin!["type"]!)
                         
                         // TODO: Utilizar imagens reais
-                        
-                        Repository.ref.child("images").child(snap.key).observe(DataEventType.value, with: { (snapshot) in
-                            if snapshot.childrenCount > 0 {
-                                if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
-                                    for snap in snapshots {
-                                        // Get download URL from snapshot
-                                        let downloadURL = snap.value as? String
-                                        // Create a storage reference from the URL
-                                        let storageRef = Storage.storage().reference(forURL: downloadURL!)
-                                        // Download the data, assuming a max size of 1MB (you can change this as necessary)
-                                       let downloadTask =  storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
-                                            if let error = error {
-                                                print(error.localizedDescription)
-                                            } else {
-                                                // Data for "images/island.jpg" is returned
-                                                let image = UIImage(data: data!)
-                                                list.append(image!)
-                                            }
-                                        }
-                                    }
-//                                    downloadTask.observe(.success) { snapshot in
-//                                        let d = Den(title!, type!, lat, lon, dt!, desc!, list)
-//                                        self.dens.append(d)
-//                                        self.tableView.reloadData()
-//                                    }
-                                }
-                            }
-                            
-                         
-                           
-                        })
-                   }
+                        let d = Den(title!, type!, lat, lon, dt!, desc!, list,snap.key)
+                        self.dens.append(d)
+                    }
                 }
             }
-          
+            self.tableView.reloadData()
         })
     }
     
@@ -147,7 +118,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @objc func backPage() {
         dismiss(animated: true, completion: nil)
     }
-
+    
     
     
 }
