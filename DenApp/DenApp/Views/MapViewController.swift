@@ -10,17 +10,17 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import FirebaseDatabase
-
+import NVActivityIndicatorView
 class MapConfig {
     static let latitute = -18.919272
     static let longitude = -48.291317
     
-    static let zoomLevel = 11.58
+    static let zoomLevel = 15.58
     static let actualPosition = GMSMarker()
     static let rangeRadius = [500,1000,1500,2000]
 }
 
-class MapViewController: UIViewController , GMSMapViewDelegate {
+class MapViewController: UIViewController , GMSMapViewDelegate, NVActivityIndicatorViewable {
     var placesClient: GMSPlacesClient!
     var mapView: GMSMapView?
     var positions = [GMSMarker]()
@@ -29,9 +29,11 @@ class MapViewController: UIViewController , GMSMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.startLoading()
         placesClient = GMSPlacesClient.shared()
         loadView()
         mapView?.delegate = self
+        
         
     }
     //no load e quando volta  executa este metodo
@@ -93,6 +95,7 @@ class MapViewController: UIViewController , GMSMapViewDelegate {
     }
     
     func listMarkersByApplication() {
+        self.startLoading()
         self.positions = [GMSMarker]()//limpa as posicoes no mapa
         Repository.ref.child("markers").observe(DataEventType.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
@@ -121,7 +124,13 @@ class MapViewController: UIViewController , GMSMapViewDelegate {
                 }
             }
             self.loadMarkers()
+            self.stopAnimating()
         })
+    }
+    
+    func startLoading() {
+        let size = CGSize(width: 70, height: 70)
+        startAnimating(size, type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballGridPulse.rawValue)!,color: UIColor.white )
     }
     
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
@@ -129,6 +138,7 @@ class MapViewController: UIViewController , GMSMapViewDelegate {
         MapConfig.actualPosition.title = "Nova denuncia"
         MapConfig.actualPosition.snippet = ""
         MapConfig.actualPosition.map = self.mapView
+        loadMarkers()
     }
     func loadMarkers()  {
 

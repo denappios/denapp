@@ -10,8 +10,8 @@ import UIKit
 import Floaty
 import FirebaseDatabase
 import FirebaseStorage
-
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+import NVActivityIndicatorView
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NVActivityIndicatorViewable {
     
     
     @IBOutlet weak var btnBack: Floaty!
@@ -23,13 +23,18 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        listMarkersByLoggedUser()
+        
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.backPage))
         btnBack.addGestureRecognizer(tapGesture)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        listMarkersByLoggedUser()
+    }
+    
     func listMarkersByLoggedUser() {
+        self.startLoading()
         let uuid = Repository.getLoggedUserId()
         self.dens.removeAll()
         var list: [UIImage] = []
@@ -54,6 +59,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
             self.tableView.reloadData()
+            self.stopAnimating()
         })
     }
     
@@ -119,6 +125,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         dismiss(animated: true, completion: nil)
     }
     
+    func startLoading() {
+        let size = CGSize(width: 70, height: 70)
+        startAnimating(size, type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballGridPulse.rawValue)!,color: UIColor.white )
+    }
     
     
 }

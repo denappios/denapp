@@ -13,8 +13,9 @@ import SCLAlertView
 import FoldingTabBar
 import FBSDKCoreKit
 import FBSDKLoginKit
+import NVActivityIndicatorView
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
+class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate,NVActivityIndicatorViewable {
     
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var signInButton: GIDSignInButton!
@@ -55,15 +56,17 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     
     
     @IBAction func fbLoginAction(_ sender: Any) {
-        
+        self.startLoading()
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
         
         fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) -> Void in
             
             if error != nil {
+                self.stopAnimating()
                 MsgAlert().alert("Erro ao realizar login no Facebook", "DenApp", .error)
             }
             else if (result?.isCancelled)! {
+                self.stopAnimating()
                 MsgAlert().alert("Login no Facebook Cancelado", "DenApp", .error)
             }
             else {
@@ -74,10 +77,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
                 Auth.auth().signIn(with: credential) { (user, error) in
                     if let error = error {
                       MsgAlert().alert("Erro ao realizar login no Facebook", "DenApp", .error)
+                        self.stopAnimating()
                     } else {
                         self.getFBUserData()
                         Authenticate.setAuthenticate(user: (Auth.auth().currentUser?.uid)!)
                         Repository.saveUser(uid: (Auth.auth().currentUser?.uid)!, email: "")
+                        self.stopAnimating()
                         self.setupTabBarController()
                     }
                 }
@@ -145,11 +150,11 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-        // ...
+        self.startLoading()
         if let error = error {
             // ...
             MsgAlert().alert("Erro ao realizar login no Google", "DenApp", .error)
-            
+            self.stopAnimating()
         } else {
             
             guard let authentication = user.authentication else { return }
@@ -158,11 +163,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
             
             Auth.auth().signIn(with: credential) { (user, error) in
                 if let error = error {
-                    // ...
+                    self.stopAnimating()
                     MsgAlert().alert("Erro ao realizar login no Google", "DenApp", .error)
                 } else {
                     Authenticate.setAuthenticate(user: (Auth.auth().currentUser?.uid)!)
                     Repository.saveUser(uid: (Auth.auth().currentUser?.uid)!, email: "")
+                    self.stopAnimating()
                     self.setupTabBarController()
                 }
                 // User is signed in
@@ -176,9 +182,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     
     
     @IBAction func loginEmailPass(_ sender: Any) {
-        
+        self.startLoading()
         if "" == txtEmail.text || "" == txtPassword.text {
             MsgAlert().alert("Email ou Password incorretos.", "DenApp", .error)
+            self.stopAnimating()
         }
         else {
             Auth.auth().signIn(withEmail: self.txtEmail.text!, password: self.txtPassword.text!) { (user, error) in
@@ -188,8 +195,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
                 
                 if error != nil {
                     MsgAlert().alert("Erro ao realizar login", "DenApp", .error)
+                    self.stopAnimating()
                 } else {
                     Authenticate.setAuthenticate(user: (Auth.auth().currentUser?.uid)!)
+                    self.stopAnimating()
                     self.setupTabBarController()
                 }
                 
@@ -197,6 +206,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         }
     }
     
-    
+    func startLoading() {
+        let size = CGSize(width: 70, height: 70)
+        startAnimating(size, type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballGridPulse.rawValue)!,color: UIColor.white )
+    }
 }
 

@@ -9,8 +9,9 @@
 import UIKit
 import Floaty
 import FSCalendar
+import NVActivityIndicatorView
 
-class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePickerControllerDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, FSCalendarDataSource, FSCalendarDelegate {
+class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePickerControllerDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, FSCalendarDataSource, FSCalendarDelegate, NVActivityIndicatorViewable {
     
     var typeDenuciation: Int = 0
     @IBOutlet weak var collectioView: UICollectionView!
@@ -143,14 +144,19 @@ class DenViewController: UIViewController, UICollectionViewDelegate,  UIImagePic
         dismiss(animated: true, completion: nil)
     }
     
-@objc func saveDenunciation(){
+    func startLoading() {
+        let size = CGSize(width: 70, height: 70)
+        startAnimating(size, type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballGridPulse.rawValue)!,color: UIColor.white )
+    }
     
+@objc func saveDenunciation(){
+    self.startLoading()
     createDenuciation()
     if(validateDununciation()){
         print("Salvando Denunciation...")
         Repository.saveMarker(marker: denunciation)
         print("Denuncia: \(denunciation)")
-        
+        self.stopAnimating()
         self.dismiss(animated: true, completion: nil)
     }
 }

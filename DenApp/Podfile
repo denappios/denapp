@@ -23,7 +23,7 @@ target 'DenApp' do
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'GooglePlacePicker'
-
+  pod 'NVActivityIndicatorView'
 
 
   pod 'Fabric'

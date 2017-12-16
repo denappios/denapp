@@ -13,8 +13,8 @@ import GooglePlaces
 import Floaty
 import FirebaseDatabase
 import FirebaseStorage
-
-class SearchDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+import NVActivityIndicatorView
+class SearchDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, NVActivityIndicatorViewable {
     @IBOutlet weak var btnBack: Floaty!
     var den: Den?
     @IBOutlet weak var txtDescription: HoshiTextView!
@@ -25,17 +25,24 @@ class SearchDetailViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var collectionPhotos: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.txtDescription.text = den?.descriacao
+       self.txtDescription.text = den?.descriacao
         self.txtDate.text = den?.data
         self.txtTitle.text = den?.title
         loadViewMap()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.backPage))
         btnBack.addGestureRecognizer(tapGesture)
-        getPhotos()
-   }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.startLoading()
+       getPhotos()
+    }
     
     func getPhotos() {
+        
         self.den?.fotos = []
+        var count = 0
         var list: [UIImage] = []
         Repository.ref.child("images").child((den?.key)!).observe(DataEventType.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
@@ -54,12 +61,17 @@ class SearchDetailViewController: UIViewController, UICollectionViewDelegate, UI
                                 let image = UIImage(data: data!)
                                 self.den?.fotos.append(image!)
                                 self.collectionPhotos.reloadData()
+                                count += 1
+                                if count == snapshot.childrenCount {
+                                    self.stopAnimating()
                                 }
+                                
+                            }
                         }
                     }
                 }
             }
-
+            
             
         })
         
@@ -95,7 +107,7 @@ class SearchDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
     }
     
-     func loadViewMap() {
+    func loadViewMap() {
         let camera = GMSCameraPosition.camera(withLatitude: den!.latitute, longitude: den!.longitude, zoom: 16.0)
         self.viewMap.camera = camera
         self.viewMap.isMyLocationEnabled = true
@@ -109,6 +121,10 @@ class SearchDetailViewController: UIViewController, UICollectionViewDelegate, UI
         marker.snippet = den?.descriacao
         marker.map  = self.viewMap
         
+    }
+    func startLoading() {
+        let size = CGSize(width: 70, height: 70)
+        startAnimating(size, type: NVActivityIndicatorType(rawValue: NVActivityIndicatorType.ballGridPulse.rawValue)!,color: UIColor.white )
     }
     
     @objc func backPage() {
